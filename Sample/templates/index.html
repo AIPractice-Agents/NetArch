@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NetSim AI – Network Lab & Discovery</title>
+<style>
+:root{--navy:#0b2545;--blue:#1d4e89;--sky:#2e86c1;--bg:#eef2f6;--card:#fff;--muted:#6b7a8a;--ok:#1e8449;--warn:#d68910;--err:#c0392b;--line:#e3e8ee}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:#1c2733;font-size:14px}
+header{background:linear-gradient(90deg,#0b2545,#13315c,#1d4e89);color:#fff;padding:12px 24px;display:flex;align-items:center;gap:18px}
+header h1{margin:0;font-size:20px;font-weight:600}
+header .sub{opacity:.8;font-size:12px}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tab{background:transparent;border:1px solid #ffffff40;color:#fff;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:14px}
+.tab.active{background:#fff;color:var(--navy);font-weight:600}
+main{padding:16px 20px}
+.panel{display:none}.panel.active{display:block}
+.card{background:var(--card);border-radius:10px;box-shadow:0 2px 8px #0001;padding:14px 16px;margin-bottom:14px}
+.card h2{margin:0 0 10px;font-size:15px;color:#13315c;display:flex;align-items:center;gap:10px}
+.card h2 .right{margin-left:auto;display:flex;gap:6px}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.col{flex:1;min-width:320px}
+button{font-family:inherit;font-size:13px;border:none;border-radius:6px;padding:7px 13px;cursor:pointer;background:var(--blue);color:#fff}
+button:hover{filter:brightness(1.1)}
+button.sec{background:#e8eef5;color:#13315c}
+button.ok{background:var(--ok)}button.danger{background:var(--err)}button.warn{background:var(--warn)}
+button.sm{padding:4px 9px;font-size:12px}
+button:disabled{opacity:.5;cursor:not-allowed}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#13315c;color:#fff;text-align:left;padding:7px 8px;font-weight:600;position:sticky;top:0}
+td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:hover td{background:#f5f9fd}
+.tbl{max-height:420px;overflow:auto;border-radius:6px}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:11.5px;font-weight:600}
+.pill.on{background:#d5f5e3;color:#145a32}.pill.off{background:#fadbd8;color:#922b21}
+.pill.g{background:#e8eef5;color:#13315c}.pill.gw{background:#fdebd0;color:#7e5109}
+.tag{display:inline-block;background:#eef3f8;border-radius:4px;padding:1px 6px;margin:1px;font-size:11.5px;color:#34495e}
+.muted{color:var(--muted)}
+.status{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.status b{font-size:18px;color:var(--blue)}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.kpi{flex:1;min-width:110px;background:#f4f8fc;border-radius:8px;padding:10px 14px}
+.kpi b{display:block;font-size:24px;color:var(--blue)}
+label{display:block;font-size:12px;font-weight:600;color:#34495e;margin:8px 0 3px}
+input,select,textarea{width:100%;padding:7px 9px;border:1px solid #c9d3de;border-radius:6px;font-family:inherit;font-size:13px}
+input:focus,select:focus{outline:2px solid #2e86c155;border-color:var(--sky)}
+.err{color:var(--err);font-size:11.5px;min-height:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.grid4{display:grid;grid-template-columns:2fr 1fr 2fr 1fr auto;gap:8px;align-items:end}
+.design{overflow:auto;max-height:640px;background:#fafcfe;border:1px solid var(--line);border-radius:8px;padding:6px}
+.modal-bg{position:fixed;inset:0;background:#0b254588;display:none;align-items:center;justify-content:center;z-index:50}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:12px;width:min(720px,94vw);max-height:92vh;overflow:auto;padding:18px 22px;box-shadow:0 10px 40px #0005}
+.modal h3{margin:0 0 6px;color:#13315c}
+.modal .foot{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.switch{display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:600;font-size:13px}
+.switch input{width:auto}
+pre.log{background:#0f1b2a;color:#cfe3f7;border-radius:8px;padding:10px 12px;height:320px;overflow:auto;font-size:12px;margin:0;white-space:pre-wrap}
+.bar{height:8px;background:#e3e8ee;border-radius:5px;overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#2e86c1,#1d4e89);width:0;transition:width .3s}
+iframe.report{width:100%;height:820px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.toast{position:fixed;right:20px;bottom:20px;background:#13315c;color:#fff;padding:10px 16px;border-radius:8px;box-shadow:0 4px 16px #0004;display:none;z-index:99;max-width:440px}
+.toast.err{background:var(--err)}.toast.warn{background:var(--warn)}
+.livebox{background:#fef5e7;border:1px solid #f5cba7;border-radius:8px;padding:8px 10px;margin-top:10px;display:none}
+.hint{background:#eaf2fb;border-radius:8px;padding:8px 10px;margin-top:8px;font-size:12.5px;color:#1b4f72}
+.hist td{cursor:pointer}
+.hist tr.sel td{background:#e3f0fb}
+.ins li{margin:4px 0}
+@media(max-width:800px){.grid2,.grid4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>🛰 NetSim AI</h1><div class="sub">Virtual network lab · Subnet discovery · Auto architecture diagram</div></div>
+  <div class="tabs">
+    <button class="tab active" data-tab="lab">🧩 Lab Devices</button>
+    <button class="tab" data-tab="scan">🔍 Scan</button>
+  </div>
+</header>
+
+<main>
+<!-- ============================ LAB TAB ============================ -->
+<section class="panel active" id="panel-lab">
+  <div class="card">
+    <div class="status">
+      <div>Lab status: <span id="labPill" class="pill off">Stopped</span></div>
+      <div><b id="kDev">0</b> devices</div>
+      <div><b id="kLink">0</b> links</div>
+      <div><b id="kSvc">0</b> services</div>
+      <div class="muted">Subnet <span id="labSubnet"></span> · port offset <span id="labOff"></span> · uptime <span id="labUp">-</span></div>
+      <div style="margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <span class="muted">Gateway</span>
+        <select id="labGw" style="width:170px" onchange="setGateway()"></select>
+        <span class="muted">SNMP community</span>
+        <input id="labComm" style="width:110px">
+        <button class="sec sm" onclick="setCommunity()">Set</button>
+        <button class="ok" id="btnStart" onclick="labAction('start')">▶ Start lab</button>
+        <button class="danger" id="btnStop" onclick="labAction('stop')">■ Stop</button>
+        <button class="sec" onclick="labAction('restart')">⟳ Restart</button>
+      </div>
+    </div>
+    <div class="err" id="labErr"></div>
+  </div>
+
+  <div class="row">
+    <div class="col" style="flex:1.4">
+      <div class="card">
+        <h2>Devices <span class="muted" style="font-weight:normal;font-size:12px">changes auto-apply when the lab is running</span>
+          <span class="right">
+            <input id="devFilter" placeholder="Filter…" style="width:150px" oninput="renderDevices()">
+            <button onclick="openDevice()">＋ Add device</button>
+          </span></h2>
+        <div class="tbl"><table>
+          <thead><tr><th>Name</th><th>IP</th><th>Model / Description</th><th>Role</th><th>SNMP</th><th>Ports</th><th>Links</th><th style="width:150px">Actions</th></tr></thead>
+          <tbody id="devBody"></tbody></table></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h2>Links (LLDP neighbours)</h2>
+        <div class="grid4">
+          <div><label>Device A</label><select id="lA"></select></div>
+          <div><label>Port A</label><input id="lAP" placeholder="Gi1/0/1"></div>
+          <div><label>Device B</label><select id="lB"></select></div>
+          <div><label>Port B</label><input id="lBP" placeholder="eth0"></div>
+          <div><button onclick="addLink()">＋ Link</button></div>
+        </div>
+        <div class="err" id="linkErr"></div>
+        <div class="tbl" style="max-height:300px"><table>
+          <thead><tr><th>Device A</th><th>Port</th><th></th><th>Device B</th><th>Port</th><th></th></tr></thead>
+          <tbody id="linkBody"></tbody></table></div>
+        <div class="hint">Home/ISP Wi-Fi routers (e.g. Syrotech) have no LLDP – leave them without links and set them as <b>Gateway</b>; hosts are linked to it as <i>inferred</i>.</div>
+      </div>
+      <div class="card">
+        <h2>Samples & lab file</h2>
+        <button class="warn" onclick="resetLab('campus')">🏢 Load campus sample</button>
+        <button class="warn" onclick="resetLab('home')">🏠 Load home Wi-Fi sample (Syrotech)</button>
+        <div style="margin-top:8px">
+          <button class="sec" onclick="location.href='/api/export'">⬇ Export JSON</button>
+          <button class="sec" onclick="document.getElementById('impFile').click()">⬆ Import JSON</button>
+          <input type="file" id="impFile" accept=".json" style="display:none" onchange="importLab(this)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Design preview <span class="muted" style="font-weight:normal;font-size:12px">what you configured – compare with the scan result</span></h2>
+    <div class="design" id="design"></div>
+  </div>
+</section>
+
+<!-- ============================ SCAN TAB ============================ -->
+<section class="panel" id="panel-scan">
+  <div class="row">
+    <div class="col" style="max-width:470px">
+      <div class="card">
+        <h2>New scan</h2>
+        <label>Target – IP, subnet, range, list or hostname</label>
+        <input id="sTarget" placeholder="192.168.1.0/24  |  10.10.1.1  |  10.10.1.10-60  |  10.1.1.1,10.1.2.1">
+        <div class="err" id="sErr"></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="sec sm" onclick="fillLab()">Lab subnet</button>
+          <button class="sec sm" onclick="fillCore()">Lab core switch + crawl</button>
+          <button class="sec sm" onclick="fillHomeLive()">My home LAN (live)</button>
+        </div>
+        <div class="grid2">
+          <div><label>Gateway / router IP</label><input id="sGw" placeholder="auto (live) · IP · none"></div>
+          <div><label>SNMP community (read-only)</label><input id="sComm" value="public"></div>
+          <div><label>Crawl LLDP/CDP hops (0-5)</label><input id="sCrawl" type="number" min="0" max="5" value="0"></div>
+          <div><label>Max hosts</label><input id="sMax" type="number" value="1024"></div>
+          <div><label>Port offset (blank = auto)</label><input id="sOff" placeholder="auto"></div>
+          <div><label>Crawl scope (CIDRs)</label><input id="sScope" placeholder="10.10.0.0/16"></div>
+        </div>
+        <div class="hint">For a home/ISP Wi-Fi router (Syrotech etc.) scan the <b>whole LAN</b> (e.g. 192.168.1.0/24), not only the router IP. The router is used as the root and hosts are linked to it.</div>
+        <div class="livebox" id="liveBox">
+          <b>⚠ Live scan of real devices.</b> Scanning networks without permission may violate policy and trigger IDS alerts.
+          <div class="switch"><input type="checkbox" id="sApprove"> I have approval to scan these targets</div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px;align-items:center">
+          <button id="btnScan" onclick="startScan()">🔍 Start scan</button>
+          <span id="modeTag" class="pill g">LAB</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Scan history</h2>
+        <div class="tbl" style="max-height:360px"><table class="hist">
+          <thead><tr><th>Time</th><th>Target</th><th>Mode</th><th>Result</th><th></th></tr></thead>
+          <tbody id="histBody"></tbody></table></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h2>Progress <span id="jobInfo" class="muted" style="font-weight:normal;font-size:12px"></span>
+          <span class="right" id="dlLinks"></span></h2>
+        <div class="bar"><i id="pBar"></i></div>
+        <pre class="log" id="log">Select a scan or start a new one.</pre>
+      </div>
+    </div>
+  </div>
+
+  <div id="results" style="display:none">
+    <div class="card">
+      <h2>Summary</h2>
+      <div class="kpis" id="kpis"></div>
+      <ul class="ins" id="insights"></ul>
+    </div>
+    <div class="card">
+      <h2>Architecture report <span class="right"><button class="sec sm" id="openRep">Open in new tab ↗</button></span></h2>
+      <iframe class="report" id="report"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================ DEVICE MODAL ============================ -->
+<div class="modal-bg" id="devModal">
+  <div class="modal">
+    <h3 id="devTitle">Add device</h3>
+    <div class="muted">Pick a template to pre-fill, then adjust any field.</div>
+    <input type="hidden" id="fId">
+    <label>Template</label><select id="fTpl" onchange="applyTemplate()"></select>
+    <div class="grid2">
+      <div><label>Name (hostname / sysName)</label><input id="fName"><div class="err" data-e="name"></div></div>
+      <div><label>IP address (in lab subnet)</label><input id="fIp"><div class="err" data-e="ip"></div></div>
+    </div>
+    <label>Open TCP ports (comma separated)</label><input id="fPorts" placeholder="22, 443"><div class="err" data-e="ports"></div>
+    <div class="switch"><input type="checkbox" id="fSnmp" onchange="toggleSnmp()"> SNMP agent enabled (managed network devices)</div>
+    <div id="snmpBox">
+      <label>sysDescr</label><textarea id="fDescr" rows="2"></textarea><div class="err" data-e="descr"></div>
+      <div class="grid2">
+        <div><label>sysObjectID</label><input id="fOid"><div class="err" data-e="oid"></div></div>
+        <div><label>sysServices (2=L2, 6=L3, 78=router)</label><input id="fSvc" type="number"><div class="err" data-e="svc"></div></div>
+        <div><label>Model (ENTITY-MIB)</label><input id="fModel"></div>
+        <div><label>Location</label><input id="fLoc"></div>
+      </div>
+    </div>
+    <label>Description – LLDP description and web page title (used to fingerprint routers, NVRs, printers)</label>
+    <input id="fDesc" placeholder="e.g. Syrotech SY-GPON-2010-WADONT"><div class="err" data-e="desc"></div>
+    <div class="foot">
+      <button class="sec" onclick="closeModal()">Cancel</button>
+      <button id="fSave" onclick="saveDevice()">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let TPL = {}, DEV = [], LINKS = [], ROLES = {}, LABST = {}, labSubnet = "127.20.20.0/24", curJob = null, pollT = null;
+
+async function api(url, opt = {}) {
+  if (opt.body && typeof opt.body !== "string") { opt.body = JSON.stringify(opt.body); opt.headers = {"Content-Type": "application/json"}; }
+  const r = await fetch(url, opt);
+  let j = {}; try { j = await r.json(); } catch (e) {}
+  if (!r.ok) throw Object.assign(new Error(j.error || "Request failed"), {data: j});
+  return j;
+}
+function toast(msg, kind = "") {
+  if (!msg) return;
+  const t = $("toast"); t.textContent = msg; t.className = "toast " + kind; t.style.display = "block";
+  clearTimeout(t._h); t._h = setTimeout(() => t.style.display = "none", 4500);
+}
+
+// ---------------- tabs ----------------
+document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("active", x === b));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === "panel-" + b.dataset.tab));
+  if (b.dataset.tab === "scan") loadHistory();
+});
+
+// ---------------- lab ----------------
+function renderLab(s) {
+  LABST = s;
+  $("labPill").textContent = s.running ? "Running" : "Stopped";
+  $("labPill").className = "pill " + (s.running ? "on" : "off");
+  $("kDev").textContent = s.devices; $("kLink").textContent = s.links; $("kSvc").textContent = s.services;
+  $("labSubnet").textContent = s.subnet; $("labOff").textContent = s.offset; labSubnet = s.subnet;
+  $("labUp").textContent = s.running ? fmtUp(s.uptime) : "-";
+  $("btnStart").disabled = s.running; $("btnStop").disabled = !s.running;
+  if (document.activeElement !== $("labComm")) $("labComm").value = s.community;
+  if (document.activeElement !== $("labGw")) $("labGw").value = s.gateway || "";
+  $("labErr").textContent = s.error || "";
+}
+const fmtUp = s => s < 60 ? s + "s" : s < 3600 ? Math.floor(s / 60) + "m" : Math.floor(s / 3600) + "h " + Math.floor(s % 3600 / 60) + "m";
+async function labAction(a) {
+  try { renderLab(await api("/api/lab/" + a, {method: "POST"})); toast(a === "start" ? "Lab started" : a === "stop" ? "Lab stopped" : "Lab restarted"); }
+  catch (e) { toast(e.message, "err"); if (e.data.lab) renderLab(e.data.lab); }
+}
+async function setCommunity() {
+  try { renderLab(await api("/api/lab/community", {method: "POST", body: {community: $("labComm").value}})); toast("Community updated"); $("sComm").value = $("labComm").value; }
+  catch (e) { toast(e.message, "err"); }
+}
+async function setGateway() {
+  try { renderLab(await api("/api/lab/gateway", {method: "POST", body: {gateway: $("labGw").value}})); await loadDevices(); toast("Gateway set"); }
+  catch (e) { toast(e.message, "err"); }
+}
+async function resetLab(sample) {
+  if (!confirm(`Replace all devices and links with the ${sample === "home" ? "home Wi-Fi" : "campus"} sample?`)) return;
+  try { await api("/api/lab/reset?sample=" + sample, {method: "POST"}); await loadDevices(); toast((sample === "home" ? "Home Wi-Fi" : "Campus") + " sample loaded"); }
+  catch (e) { toast(e.message, "err"); }
+}
+async function importLab(inp) {
+  const f = inp.files[0]; if (!f) return;
+  try { const r = await api("/api/import", {method: "POST", body: JSON.parse(await f.text())}); toast(r.message); loadDevices(); }
+  catch (e) { toast(e.message, "err"); }
+  inp.value = "";
+}
+
+// ---------------- devices ----------------
+async function loadDevices() {
+  const r = await api("/api/devices");
+  DEV = r.devices; LINKS = r.links; ROLES = r.roles;
+  $("labGw").innerHTML = '<option value="">– none –</option>' + DEV.slice().sort((a, b) => ipNum(a.ip) - ipNum(b.ip))
+    .map(d => `<option value="${esc(d.ip)}">${esc(d.name)} (${esc(d.ip)})</option>`).join("");
+  renderLab(r.lab); renderDevices(); renderLinks();
+  $("design").innerHTML = r.design;
+}
+function renderDevices() {
+  const q = $("devFilter").value.toLowerCase();
+  const cnt = id => LINKS.filter(l => l.a === id || l.b === id).length;
+  $("devBody").innerHTML = DEV.filter(d => !q || JSON.stringify(d).toLowerCase().includes(q))
+    .sort((a, b) => ipNum(a.ip) - ipNum(b.ip)).map(d => {
+      const r = ROLES[d.ip] || {}, gw = LABST.gateway === d.ip;
+      return `<tr><td><b>${esc(d.name)}</b> ${gw ? '<span class="pill gw">Gateway</span>' : ""}</td><td>${esc(d.ip)}</td>
+      <td>${esc(d.snmp ? (d.model || d.descr.slice(0, 40)) : d.desc)}<div class="muted" style="font-size:11px">${esc(r.vendor || "")}</div></td>
+      <td>${esc(r.role || "")}<div class="muted" style="font-size:11px">${esc(r.tier || "")}</div></td>
+      <td>${d.snmp ? '<span class="pill on">SNMP</span>' : '<span class="pill g">none</span>'}</td>
+      <td>${d.ports.map(p => `<span class="tag">${p}</span>`).join("") || '<span class="muted">-</span>'}</td>
+      <td>${cnt(d.id)}</td>
+      <td><button class="sm" onclick="openDevice('${d.id}')">Edit</button>
+          <button class="sm sec" onclick="openDevice('${d.id}',true)">Clone</button>
+          <button class="sm danger" onclick="delDevice('${d.id}')">✕</button></td></tr>`;
+    }).join("") || '<tr><td colspan="8" class="muted">No devices.</td></tr>';
+  const opts = '<option value="">– select –</option>' + DEV.slice().sort((a, b) => a.name.localeCompare(b.name))
+    .map(d => `<option value="${d.id}">${esc(d.name)} (${esc(d.ip)})</option>`).join("");
+  const a = $("lA").value, b = $("lB").value;
+  $("lA").innerHTML = opts; $("lB").innerHTML = opts; $("lA").value = a; $("lB").value = b;
+}
+const ipNum = ip => ip.split(".").reduce((a, o) => a * 256 + +o, 0);
+const devName = id => (DEV.find(d => d.id === id) || {}).name || "?";
+function renderLinks() {
+  $("linkBody").innerHTML = LINKS.map(l => `<tr><td>${esc(devName(l.a))}</td><td><span class="tag">${esc(l.a_port)}</span></td>
+    <td>↔</td><td>${esc(devName(l.b))}</td><td><span class="tag">${esc(l.b_port)}</span></td>
+    <td><button class="sm danger" onclick="delLink('${l.id}')">✕</button></td></tr>`).join("")
+    || '<tr><td colspan="6" class="muted">No links.</td></tr>';
+}
+function openDevice(id, clone = false) {
+  document.querySelectorAll("[data-e]").forEach(e => e.textContent = "");
+  const d = DEV.find(x => x.id === id);
+  $("devTitle").textContent = !d ? "Add device" : clone ? "Clone device" : "Edit device – " + d.name;
+  $("fId").value = d && !clone ? d.id : "";
+  if (d) {
+    $("fTpl").value = d.template in TPL ? d.template : "custom";
+    $("fName").value = clone ? d.name + "-copy" : d.name; $("fIp").value = clone ? nextIp() : d.ip;
+    $("fPorts").value = d.ports.join(", "); $("fSnmp").checked = d.snmp; $("fDescr").value = d.descr;
+    $("fOid").value = d.oid; $("fSvc").value = d.svc; $("fModel").value = d.model; $("fLoc").value = d.location;
+    $("fDesc").value = d.desc;
+  } else {
+    $("fTpl").value = "juniper-ex4100"; applyTemplate(); $("fName").value = ""; $("fIp").value = nextIp(); $("fLoc").value = "";
+  }
+  toggleSnmp(); $("devModal").classList.add("show"); $("fName").focus();
+}
+function nextIp() {
+  const used = new Set(DEV.map(d => d.ip)), base = labSubnet.split("/")[0].split(".").slice(0, 3).join(".");
+  for (let i = 2; i < 255; i++) if (!used.has(`${base}.${i}`)) return `${base}.${i}`;
+  return "";
+}
+function applyTemplate() {
+  const t = TPL[$("fTpl").value]; if (!t) return;
+  $("fSnmp").checked = t.snmp; $("fDescr").value = t.descr; $("fOid").value = t.oid; $("fSvc").value = t.svc;
+  $("fModel").value = t.model; $("fDesc").value = t.desc; $("fPorts").value = t.ports.join(", ");
+  toggleSnmp();
+}
+function toggleSnmp() { $("snmpBox").style.display = $("fSnmp").checked ? "block" : "none"; }
+function closeModal() { $("devModal").classList.remove("show"); }
+async function saveDevice() {
+  document.querySelectorAll("[data-e]").forEach(e => e.textContent = "");
+  const body = {name: $("fName").value, ip: $("fIp").value, template: $("fTpl").value, snmp: $("fSnmp").checked,
+    descr: $("fDescr").value, oid: $("fOid").value, svc: $("fSvc").value, model: $("fModel").value,
+    location: $("fLoc").value, desc: $("fDesc").value, ports: $("fPorts").value};
+  const id = $("fId").value;
+  $("fSave").disabled = true;
+  try {
+    const r = await api(id ? "/api/devices/" + id : "/api/devices", {method: id ? "PUT" : "POST", body});
+    closeModal(); await loadDevices(); toast((id ? "Device updated. " : "Device added. ") + (r.message || ""));
+  } catch (e) {
+    const errs = (e.data && e.data.errors) || {};
+    Object.entries(errs).forEach(([k, v]) => { const el = document.querySelector(`[data-e="${k}"]`); if (el) el.textContent = v; });
+    if (!Object.keys(errs).length) toast(e.message, "err");
+  } finally { $("fSave").disabled = false; }
+}
+async function delDevice(id) {
+  const d = DEV.find(x => x.id === id);
+  const n = LINKS.filter(l => l.a === id || l.b === id).length;
+  if (!confirm(`Delete ${d.name}${n ? ` and its ${n} link(s)` : ""}?`)) return;
+  try { const r = await api("/api/devices/" + id, {method: "DELETE"}); await loadDevices(); toast("Device deleted. " + (r.message || "")); }
+  catch (e) { toast(e.message, "err"); }
+}
+async function addLink() {
+  $("linkErr").textContent = "";
+  try {
+    const r = await api("/api/links", {method: "POST", body: {a: $("lA").value, a_port: $("lAP").value, b: $("lB").value, b_port: $("lBP").value}});
+    $("lAP").value = ""; $("lBP").value = ""; await loadDevices();
+    toast(r.warning || ("Link added. " + (r.message || "")), r.warning ? "warn" : "");
+  } catch (e) { $("linkErr").textContent = Object.values((e.data && e.data.errors) || {}).join(" ") || e.message; }
+}
+async function delLink(id) {
+  try { const r = await api("/api/links/" + id, {method: "DELETE"}); await loadDevices(); toast("Link removed. " + (r.message || "")); }
+  catch (e) { toast(e.message, "err"); }
+}
+
+// ---------------- scan ----------------
+function fillLab() { $("sTarget").value = labSubnet; $("sCrawl").value = 0; $("sGw").value = LABST.gateway || ""; checkLive(); }
+function fillCore() {
+  const o = {Perimeter: 0, Gateway: 1, WAN: 1, Core: 2, Distribution: 3, Network: 3};
+  const core = DEV.filter(d => d.snmp).sort((a, b) => (o[(ROLES[a.ip] || {}).tier] ?? 9) - (o[(ROLES[b.ip] || {}).tier] ?? 9))[0];
+  if (!core) return toast("No SNMP device in this lab – use 'Lab subnet' instead", "warn");
+  $("sTarget").value = core.ip; $("sCrawl").value = 4; $("sGw").value = ""; checkLive();
+}
+function fillHomeLive() { $("sTarget").value = "192.168.1.0/24"; $("sGw").value = "auto"; $("sCrawl").value = 0; checkLive();
+  toast("Typical home LAN – change to your network (see ipconfig / Default Gateway)", "warn"); }
+function isLoop(t) { return t.trim() !== "" && t.split(/[,\s]+/).filter(Boolean).every(x => /^127\./.test(x)); }
+function checkLive() {
+  const t = $("sTarget").value, live = t.trim() && !isLoop(t);
+  $("liveBox").style.display = live ? "block" : "none";
+  $("modeTag").textContent = live ? "LIVE" : "LAB"; $("modeTag").className = "pill " + (live ? "off" : "g");
+}
+$("sTarget").addEventListener("input", checkLive);
+async function startScan() {
+  $("sErr").textContent = "";
+  try {
+    const j = await api("/api/scan", {method: "POST", body: {target: $("sTarget").value, community: $("sComm").value,
+      crawl: $("sCrawl").value, offset: $("sOff").value, max_hosts: $("sMax").value, scope: $("sScope").value,
+      gateway: $("sGw").value, approved: $("sApprove").checked}});
+    $("results").style.display = "none"; showJob(j.id); loadHistory();
+  } catch (e) { $("sErr").textContent = e.message; }
+}
+async function loadHistory() {
+  const jobs = await api("/api/scans");
+  $("histBody").innerHTML = jobs.map(j => {
+    const res = j.status === "done" ? `${j.summary.devices} dev / ${j.summary.links + (j.summary.inferred || 0)} links` : j.status;
+    return `<tr class="${j.id === curJob ? "sel" : ""}" onclick="showJob('${j.id}')"><td>${esc(j.created.replace("T", " ").slice(5, 16))}</td>
+      <td>${esc(j.target.slice(0, 26))}</td><td><span class="pill ${j.mode === "LIVE SCAN" ? "off" : "g"}">${j.mode === "LIVE SCAN" ? "LIVE" : "LAB"}</span></td>
+      <td>${esc(res)}</td><td><button class="sm sec" onclick="event.stopPropagation();delScan('${j.id}')">✕</button></td></tr>`;
+  }).join("") || '<tr><td colspan="5" class="muted">No scans yet.</td></tr>';
+}
+async function delScan(id) {
+  try { await api("/api/scans/" + id, {method: "DELETE"}); if (id === curJob) { curJob = null; $("results").style.display = "none"; $("log").textContent = ""; } loadHistory(); }
+  catch (e) { toast(e.message, "err"); }
+}
+async function showJob(id) {
+  curJob = id; clearTimeout(pollT);
+  const j = await api("/api/scans/" + id);
+  $("log").textContent = j.log || "(no log)"; $("log").scrollTop = 1e9;
+  const pct = j.total ? Math.round(100 * j.progress / j.total) : 0;
+  $("pBar").style.width = (j.status === "done" ? 100 : pct) + "%";
+  $("jobInfo").textContent = `${j.target} · ${j.mode} · ${j.status}${j.status === "running" ? ` (${j.progress}/${j.total})` : ""}`;
+  $("btnScan").disabled = ["queued", "running"].includes(j.status);
+  const f = n => `/scans/${id}/${n}`;
+  $("dlLinks").innerHTML = j.has_report ? ["netsim_report.html|HTML", "netsim_inventory.csv|CSV", "netsim_topology.mmd|Mermaid", "netsim_scan.json|JSON"]
+    .map(x => { const [n, l] = x.split("|"); return `<a href="${f(n)}?dl=1"><button class="sm sec">⬇ ${l}</button></a>`; }).join("") : "";
+  if (["queued", "running"].includes(j.status)) { pollT = setTimeout(() => showJob(id), 700); return; }
+  loadHistory();
+  if (j.status === "done") {
+    const s = j.summary;
+    $("kpis").innerHTML = [[s.devices, "Devices"], [s.links, "LLDP/CDP links"], [s.inferred || 0, "Inferred links"],
+      [s.network, "Network devices"], [s.snmp, "Via SNMP"], [s.vendors.length, "Vendors"]]
+      .map(([v, l]) => `<div class="kpi"><b>${v}</b>${l}</div>`).join("");
+    $("insights").innerHTML = s.insights.map(i => `<li>${esc(i)}</li>`).join("");
+    $("report").src = f("netsim_report.html") + "?t=" + Date.now();
+    $("openRep").onclick = () => window.open(f("netsim_report.html"), "_blank");
+    $("results").style.display = "block";
+  } else {
+    $("results").style.display = "none";
+    if (j.error) toast(j.error, j.status === "empty" ? "warn" : "err");
+  }
+}
+
+// ---------------- init ----------------
+(async () => {
+  TPL = await api("/api/templates");
+  $("fTpl").innerHTML = Object.entries(TPL).map(([k, t]) => `<option value="${k}">${esc(t.label)}</option>`).join("");
+  await loadDevices();
+  fillLab();
+  setInterval(async () => { try { renderLab(await api("/api/lab")); } catch (e) {} }, 5000);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+})();
+</script>
+</body>
+</html>
