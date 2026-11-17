@@ -1,0 +1,184 @@
+Build a Python project called "NetArch AI": a virtual network lab plus a subnet scanner that finds devices
+and draws a network architecture diagram automatically. It must run on Windows and Linux with Python 3.8+.
+Only the web UI may use Flask. The engine must use the standard library only (no pip packages, no Docker,
+no Containerlab, no Nmap).
+
+PROJECT STRUCTURE
+netsim/
+  netsim_ai.py          # engine and CLI (standard library only)
+  app.py                # Flask web app
+  templates/index.html  # single-page UI (plain HTML/CSS/JS, no frameworks, no CDN)
+  requirements.txt      # flask>=3.0
+  README.md
+
+==================================================================
+PART 1: ENGINE (netsim_ai.py)
+==================================================================
+1. Minimal SNMPv2c implementation in pure Python (BER encode/decode):
+   - GET, GETNEXT and GETBULK requests, plus walk.
+   - Decode OCTET STRING (show binary values as 0x-hex), INTEGER, OID, IpAddress, Counter, Gauge, TimeTicks.
+   - OIDs: sysDescr, sysObjectID, sysName, sysServices, sysLocation, ENTITY-MIB entPhysicalModelName,
+     LLDP-MIB (local port, remote port, remote sysName, remote sysDesc, remote management address)
+     and CISCO-CDP-MIB (device ID, address, port, platform) with ifName for local port names.
+
+2. Virtual lab (no admin rights needed):
+   - Each device gets its own loopback IP in 127.20.20.0/24.
+   - All ports use an offset of 20000 (SNMP 161 becomes 20161, SSH 22 becomes 20022, and so on).
+   - Each network device runs a threaded UDP SNMP agent that answers with its identity
+     (sysDescr, sysObjectID, sysServices, model) and an LLDP neighbour table that includes management IPs.
+   - TCP services return banners: an SSH banner by vendor, "login:" for Telnet, and a real HTTP response
+     with a configurable <title> (banner "HTTP:<title>"), so routers, NVRs and printers can be fingerprinted.
+   - start_lab(offset, community, devices) returns the threads; stop_lab(threads) shuts them down cleanly
+     (socket timeouts plus a running flag). Raise a clear error if a bind fails.
+     On macOS, tell the user to add loopback aliases.
+   - Built-in sample campus (13 devices, 12 links):
+     core-ex4400 (Juniper EX4400-24X, L3, svc 6) -> dist-c9300 (Cisco C9300-48P, CAT9K_IOSXE, svc 6),
+     edge-ex4000 (Juniper EX4000-8P, Telnet open), db-01 (MariaDB 3306)
+     dist-c9300 -> acc-c9200 (Cisco C9200-24P, CAT9K_LITE_IOSXE), acc-ex4100 (Juniper EX4100-48MP), web-01 (nginx)
+     acc-c9200 -> pc-01 (RDP+SMB), pc-02 (SMB)
+     acc-ex4100 -> ap45-01, ap45-02 (Juniper Mist AP45: no SNMP and no open ports, discoverable ONLY through
+     the switch's LLDP), pc-03
+     edge-ex4000 -> mtg-room-pc (RDP)
+     Use realistic port names (xe-0/0/0, Te1/1/1, Gi1/0/1, ge-0/2/0, mge-0/0/0, eth0)
+     and Juniper (1.3.6.1.4.1.2636) / Cisco (1.3.6.1.4.1.9) enterprise OIDs.
+
+3. Scanner:
+   - Targets: single IP, CIDR, range (10.1.1.10-60 or a full end IP), hostname, comma/space list, @file.
+     Refuse more than max_hosts (default 4096) with a clear TargetError.
+   - For each host, run in parallel with a ThreadPoolExecutor:
+     SNMP identity, ENTITY model, LLDP and CDP neighbours; a TCP port scan (22, 23, 53, 80, 443, 445, 554,
+     830, 1433, 3306, 3389, 5432, 8080, 8443, 9100) with banners; and an HTTP fingerprint on web ports
+     (HTTP/HTTPS with an unverified TLS context, follow one redirect including meta-refresh and JS location,
+     extract <title>, the Server header and brand/keyword hints such as syrotech, gpon, ont, tp-link,
+     hikvision, nvr, printer, synology).
+   - Live mode (any non-loopback target): port offset 0, longer timeouts, ping (cross-platform,
+     check for "ttl="), reverse DNS.
+   - ARP step (live): read the OS ARP cache (/proc/net/arp or "arp -a"), add silent devices that answered
+     nothing, attach MAC addresses, look up the MAC vendor from an optional IEEE oui.csv,
+     and flag locally administered MACs as "Private MAC".
+   - Mark this PC's own IP as "(this PC)".
+   - Gateway: auto-detect the default gateway on live scans (/proc/net/route, "route print", or netstat),
+     or accept --gateway IP, or "none". If the gateway is in the targets, mark it is_gateway. Find its LAN
+     from a target CIDR, else from this PC's connected networks, else a /24.
+   - Crawl option: follow LLDP/CDP management IPs for N hops, limited to RFC1918 ranges or a --scope list.
+   - A progress callback, (done, total).
+
+4. Classification (vendor, model, role, tier):
+   - Vendor from the sysObjectID prefix (Cisco, Juniper, Fortinet, Palo Alto, Arista, Check Point, HPE,
+     Aruba, MikroTik), else from brand regexes on all text (Syrotech, TP-Link, D-Link, Netgear, Tenda,
+     Huawei, ZTE, Hikvision, Dahua, HP, Epson, Synology ...), else the MAC vendor.
+   - Rules in order: Syrotech/SY-GPON -> Wi-Fi Router (Gateway); EX4400 -> L3 Switch (Core);
+     EX4100 -> Switch (Access); EX4000 -> Switch (Edge); C9300/CAT9K_IOSXE -> L3 Switch (Distribution);
+     C9200/CAT9K_LITE -> Switch (Access); AP45/Mist -> Wireless AP; ASA/FortiGate/PAN-OS/SRX -> Firewall;
+     ISR/ASR -> Router; GPON/ONT/consumer router brands -> Wi-Fi Router; NVR/camera -> IP Camera / NVR;
+     printers -> Printer; Synology/QNAP -> NAS / Storage; switch keywords -> Switch.
+   - SNMP fallback on sysServices: 6 -> L3 Switch, 4 -> Router, 2 -> Switch.
+   - Host fallback by ports: 554 -> camera, 9100 -> printer, DB ports -> Database Server,
+     web ports -> Web Server, RDP/SMB -> Workstation.
+   - The gateway is always forced to Router or Wi-Fi Router, tier "Gateway".
+   - Extract model codes like SY-GPON-2010-WADONT from page text.
+   - Give unnamed devices readable names (wifi-router-1, pc-20, camera-nvr-30, printer-40).
+
+5. Topology:
+   - Real edges come from LLDP/CDP, matched by management IP or normalised name. Neighbours that were never
+     scanned (like APs) are added as LLDP-only devices.
+   - Gateway inference: every connected component on the gateway's LAN that doesn't include the gateway
+     gets ONE inferred edge from the gateway to that component's highest-tier device (flag "_inferred").
+   - Layout: a tree per connected component (BFS from the gateway, or from the highest tier), sorted by
+     tier order Perimeter, Gateway/WAN, Core, Distribution, Edge/Access, Wireless, Endpoint.
+     Isolated hosts go in wrapped rows at the bottom.
+
+6. Output (into an output folder):
+   - netsim_report.html: offline, no JavaScript libraries. A header, KPI cards (devices, LLDP/CDP links,
+     inferred links, network devices, vendors), an inline SVG diagram (coloured rounded boxes with emoji
+     icons per role, orthogonal links with port labels, dashed grey inferred links, a red border for Telnet,
+     hover tooltips with IP/MAC/vendor/model/web title/via/ports), a legend, an insights list and an
+     inventory table.
+   - netsim_inventory.csv, netsim_topology.mmd (Mermaid; dashed lines for inferred links),
+     netsim_scan.json (devices, links with an inferred flag, plain-text insights).
+
+7. Insights (rule-based):
+   - Counts by role and vendor; a multi-vendor note; single points of failure in a tree topology.
+   - Devices found only through LLDP/CDP; devices found only through ARP; count of randomized MACs.
+   - Network devices without SNMP; AP PoE uplink.
+   - Telnet, RDP and SMB exposure; RTSP 554 exposure.
+   - Gateway web UI on plain HTTP: change the default admin password.
+   - If there are no real links but there are inferred ones: explain that home/ISP routers such as Syrotech
+     have no SNMP/LLDP, so links are inferred and wired vs Wi-Fi can't be told apart.
+   - If only the gateway was scanned: suggest scanning the whole /24.
+   - If there are no links and no gateway: suggest enabling SNMP+LLDP/CDP, crawling, or including the gateway.
+
+8. CLI:
+   python netsim_ai.py demo   (start lab, scan, open report)
+   python netsim_ai.py lab
+   python netsim_ai.py scan <target> [--community] [--crawl N] [--scope CIDRs] [--gateway IP|auto|none]
+                                     [--max-hosts] [--port-offset] [--out] [--no-browser]
+   Print a [LIVE] approval reminder before live scans.
+
+==================================================================
+PART 2: FLASK APP (app.py + templates/index.html)
+==================================================================
+Two tabs in one page.
+
+TAB 1 "Lab Devices":
+- Status bar: running/stopped pill, device/link/service counts, subnet, offset, uptime,
+  a Gateway dropdown (lab devices), an SNMP community field, and Start / Stop / Restart buttons.
+- Devices table (filterable): name with a Gateway badge, IP, model/description and vendor, role/tier
+  (classified with the engine), SNMP pill, port tags, link count, and Edit / Clone / Delete buttons.
+- Add/Edit pop-up with templates that pre-fill every field: Juniper EX4400/EX4100/EX4000,
+  Cisco C9300/C9200/ISR4331/ASA, FortiGate-100F, Juniper SRX345, Syrotech GPON ONT (no SNMP, ports 80+53,
+  description "Syrotech SY-GPON-2010-WADONT"), Mist AP45, Windows PC, CCTV NVR, printer, Linux web,
+  Linux DB, Custom.
+  Fields: name, IP, ports, an SNMP toggle (sysDescr, sysObjectID, sysServices, model, location),
+  and a description (used as the LLDP description AND the web page title).
+- Validation shown under each field: unique name (regex), IP inside 127.20.20.0/24 (not network/broadcast,
+  unique), ports 1-45535, an OID format check, sysServices 0-127, and a description or port required
+  for non-SNMP devices.
+- Links panel: device A + port, device B + port; reject duplicate ports; warn when neither device has SNMP;
+  delete links. Deleting a device also deletes its links and clears the gateway if it was the gateway.
+- Any change while the lab is running restarts the lab automatically and reports that in a toast.
+- Buttons: load campus sample, load home Wi-Fi sample (Syrotech ONT at .1 as gateway, 2 Windows laptops,
+  an NVR, an HP printer, a Synology NAS, no links), Export JSON, Import JSON (validate, roll back on error).
+- Design preview: an SVG of the configured lab drawn by the same engine (with gateway-inferred links).
+- Save state to lab_devices.json (atomic write); create the campus sample on first run.
+
+TAB 2 "Scan":
+- Form: target, gateway (auto / IP / none), SNMP community, crawl hops 0-5, max hosts, port offset
+  (blank = auto), crawl scope.
+  Quick buttons: "Lab subnet", "Lab core switch + crawl" (picks the highest-tier SNMP device, crawl 4),
+  "My home LAN (live)" (192.168.1.0/24, gateway auto).
+- A hint box explaining that home routers need a whole-LAN scan.
+- A LAB/LIVE mode tag. For live targets, show a warning box and a REQUIRED "I have approval" checkbox;
+  the server also rejects live scans without approval.
+- Run scans in a background thread, one at a time (return 409 if busy). Capture each scan's print()
+  output into its own log through a thread-local stdout router.
+- A progress bar and a live dark log panel (poll every 0.7s).
+- Results: KPI cards, insights, the report in an iframe plus "open in new tab", and download buttons
+  for HTML / CSV / Mermaid / JSON.
+- Scan history saved to scans/<job-id>/ (meta.json, scan.log, outputs), reloaded on start;
+  click to reopen, and a delete button.
+- REST API: /api/templates, /api/lab, /api/lab/<start|stop|restart|reset?sample=|community|gateway>,
+  /api/devices (GET/POST), /api/devices/<id> (PUT/DELETE), /api/links (POST), /api/links/<id> (DELETE),
+  /api/export, /api/import, /api/scan (POST), /api/scans, /api/scans/<id> (GET/DELETE),
+  /scans/<id>/<file> (whitelisted files; ?dl=1 to download).
+- Run with: python app.py [--host 127.0.0.1] [--port 5000] [--start-lab]. Bind to 127.0.0.1 by default
+  and note that there is no login.
+
+UI style: clean corporate look (navy/blue header gradient, white cards with shadows, rounded buttons,
+pills, toast messages, responsive grid). Escape all user text in the HTML.
+
+==================================================================
+README AND TESTING
+==================================================================
+- README: setup, the two tabs, a table of discovery methods, the Syrotech/home router section
+  (scan the whole LAN, ipconfig "Default Gateway", wired vs Wi-Fi limit, optional oui.csv),
+  the lab notes, and the approval and security notes.
+- Before finishing, test:
+  (1) "demo" finds 13 devices and 12 LLDP links, identifies vendors and models correctly,
+      and finds the APs only through LLDP;
+  (2) scanning only the core IP with crawl 4 finds all 13;
+  (3) the home sample gives a Syrotech Wi-Fi Router as gateway with 5 inferred links;
+  (4) a live scan without approval is rejected;
+  (5) add, edit and delete work through the API;
+  (6) the JavaScript passes "node --check".
+- Deliver everything as one zip.
