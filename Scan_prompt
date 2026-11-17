@@ -1,0 +1,333 @@
+Build a Python application called "NetArch Scan": a network discovery tool that scans an IP, subnet, range
+or list using a pipeline of 5 agents, identifies each device (vendor, model, role), finds the links between
+devices, verifies the results, and then pauses for a human to review and approve them before drawing the
+final network architecture diagram and report.
+It must run on Windows and Linux with Python 3.8+. Only the web UI may use Flask. The engine and agents must
+use the standard library only (no Nmap, no pysnmp, no pip packages).
+It must work on real networks AND against the separate "NetArch Lab" application, which simulates devices
+on loopback. It learns about lab devices only by scanning them, never by reading the lab's files.
+
+==================================================================
+SHARED CONTRACT (must match NetArch Lab exactly)
+==================================================================
+- Lab subnet 127.20.20.0/24; port offset 20000 on every service (SNMP UDP 20161, SSH 20022, HTTP 20080 ...).
+- If every target is a loopback (127.x) address, use offset 20000 automatically; otherwise offset 0.
+  Allow a manual override.
+- SNMPv2c read-only community (default "public").
+- Lab devices expose sysDescr, sysObjectID, sysName, sysServices, sysLocation, ENTITY-MIB model,
+  LLDP-MIB remote tables with the management IP encoded in lldpRemManAddr OIDs
+  (...4.2.1.3.<tm>.<port>.<idx>.1.4.a.b.c.d), SSH/Telnet banners, and HTTP pages whose <title> is the
+  device description.
+- Optional lab info endpoint: GET <lab-url>/api/info returns
+  {"running","subnet","offset","community","gateway","core_ip","devices":[{"name","ip","role","tier","snmp"}]}.
+  The scanner backend fetches it with urllib (server side, so no CORS is needed).
+
+==================================================================
+PROJECT STRUCTURE
+==================================================================
+netarch-scan/
+  netarch/
+    __init__.py
+    snmp.py             # SNMPv2c BER client: GET, GETNEXT walk, value decoding
+    probes.py           # TCP, HTTP fingerprint, ping, ARP, gateway, connected networks, OUI lookup
+    classify.py         # vendor / model / role / tier rules
+    context.py          # ScanContext: the shared blackboard all agents read and write
+    agents/
+      base.py           # BaseAgent
+      discovery.py      # Agent 1
+      enrichment.py     # Agent 2
+      links.py          # Agent 3
+      verification.py   # Agent 4
+      review.py         # Agent 5 (human in the loop)
+    orchestrator.py     # runs the pipeline, pause/resume, rerun an agent
+    report.py           # layout, SVG, HTML report, CSV, Mermaid, JSON
+  scan_cli.py           # command line
+  app.py                # Flask app on port 5002
+  templates/index.html  # single page, plain HTML/CSS/JS, no frameworks, no CDN
+  overrides.json        # human corrections remembered across scans (created on first approval)
+  requirements.txt      # flask>=3.0
+  README.md
+  (optional) oui.csv    # IEEE MAC vendor list, downloaded by the user
+
+==================================================================
+AGENT FRAMEWORK
+==================================================================
+1. ScanContext (one per scan job, saved as scans/<job-id>/context.json after every agent):
+   - settings: target, hosts, live, offset, community, crawl, scope, max_hosts, gateway option.
+   - devices: dict keyed by device key (IP, or "nbr:<name>" for neighbour-only devices). Each device has
+     ip, name, mac, mac_vendor, ports, banners, http, snmp, lldp (raw neighbours), via [methods],
+     vendor, model, role, tier, is_gateway, lan, confidence (0-100), issues [], evidence [],
+     review_status ("pending"|"approved"|"edited"|"rejected"), human_edits {}.
+   - links: dict keyed by "a|b" (sorted). Each link has a, b, a_port, b_port, source ("LLDP"|"CDP"|
+     "inferred"|"manual"), seen_from ["a","b"] (which ends reported it), confidence, issues,
+     review_status, human_edits.
+   - agent_runs: per agent: status (pending|running|done|error|skipped), started, finished,
+     duration_s, summary text, counts, and its log lines.
+   - audit: list of {time, actor ("agent:<name>" or "human:<reviewer>"), action, target, before, after}.
+   - Thread-safe: an RLock around every change.
+2. BaseAgent: name, title, description, run(ctx, log, progress) -> summary dict. Every agent:
+   - logs with its own prefix, e.g. "[Discovery] + 10.0.0.5 via Ports+ICMP";
+   - only adds or updates the fields it owns;
+   - writes an audit entry for every change it makes to an existing device or link;
+   - can be rerun on its own (idempotent: rerunning replaces its own previous results).
+3. Orchestrator:
+   - Runs Discovery -> Enrichment -> Links -> Verification in a background thread, then stops at
+     status "awaiting_review" and hands over to the Human-in-the-Loop agent.
+   - Job status: queued, discovery, enrichment, links, verification, awaiting_review, finalizing,
+     done, discarded, error.
+   - If Discovery finds nothing, stop with status "empty" and skip the other agents.
+   - "Rerun from agent N" reruns agent N and every agent after it, then returns to awaiting_review.
+   - Only one job may be in an agent-running state at a time (HTTP 409 if busy). Jobs waiting for review
+     do NOT block new scans.
+   - Capture each job's print() output into its own log with a thread-local stdout router.
+
+==================================================================
+AGENT 1: DISCOVERY AGENT (scan devices)
+==================================================================
+Goal: find which targets are alive. Fast and light.
+- Parse targets: single IP, CIDR, range (10.1.1.10-60 or a full end IP), hostname, comma/space list, @file;
+  remove duplicates; refuse more than max_hosts (default 4096) with a TargetError.
+- In parallel (ThreadPoolExecutor, default 128 workers), for each host:
+  quick SNMP GET sysDescr; TCP connect on 22, 23, 53, 80, 443, 445, 554, 830, 1433, 3306, 3389, 5432,
+  8080, 8443, 9100 (record open ports and banners); in live mode also cross-platform ping (success only if
+  the output contains "ttl=").
+- Live mode: read the ARP cache (/proc/net/arp or "arp -a"/"arp -an") and add targets that are only in ARP
+  (via "ARP"); attach MAC addresses; mark this PC's own IP as "<hostname> (this PC)".
+- Gateway: option "auto" (default for live), an IP, or "none". Detect the default gateway
+  (/proc/net/route, Windows "route print -4", or "netstat -rn"). If it is among the targets, set
+  is_gateway and its LAN (a target CIDR containing it, else a connected network, else a /24).
+- Summary: hosts probed, live devices, devices by method, gateway found yes/no, duration.
+
+==================================================================
+AGENT 2: ENRICHMENT AGENT (scan additional information)
+==================================================================
+Goal: collect everything that helps identify each live device, then classify it.
+- SNMP: sysDescr, sysObjectID, sysName, sysServices, sysLocation, ENTITY-MIB model (first non-empty).
+- HTTP fingerprint on the first open web port (User-Agent "NetArchScan"): HTTPS with an unverified TLS
+  context for 443/8443; follow one redirect (Location header, meta refresh, short JS location); capture
+  <title>, the Server header and brand hints (cisco, juniper, aruba, fortigate, palo alto, pfsense,
+  opnsense, sophos, mikrotik, ubiquiti, huawei, router, firewall, switch, access point, nvr/dvr,
+  hikvision, dahua, camera, printer, laserjet, epson, canon, brother, synology, qnap).
+- Reverse DNS (live), MAC vendor from oui.csv if present, locally administered MACs = "Private MAC".
+- Classification (classify.py) -> vendor, model, role, tier, and an evidence list that records WHICH data
+  decided each value (e.g. "vendor=Cisco from sysObjectID 1.3.6.1.4.1.9", "role=Printer from web title"):
+  - Vendor from the sysObjectID prefix (Cisco .9, Juniper .2636, Fortinet .12356, Palo Alto .25461,
+    Arista .30065, Check Point .2620, HPE .11, Aruba .14823, MikroTik .14988), else brand regexes, else the
+    MAC vendor, else banners/OS text.
+  - Ordered regex rules over sysDescr + model + web title/server/hints + MAC vendor:
+    ex4400 -> L3 Switch Core; ex4100 -> Switch Access; ex4000 -> Switch Edge;
+    c9300|cat9k_iosxe -> L3 Switch Distribution; c9200|cat9k_lite -> Switch Access; ap45|mist -> Wireless AP;
+    asa|fortigate|pan-os|srx|firepower|pfsense|opnsense|sophos -> Firewall Perimeter;
+    isr|asr|mx|csr1000|c8xxx|"internet router" -> Router WAN; router|mikrotik -> Router;
+    access point -> Wireless AP; nvr/dvr/camera -> IP Camera / NVR; printers -> Printer;
+    synology|qnap|diskstation|nas -> NAS / Storage; phone -> IP Phone; nexus|catalyst|switch -> Switch.
+  - SNMP fallback on sysServices: bits 6 -> L3 Switch, 4 -> Router, 2 -> Switch.
+  - Port fallback: 554 camera, 9100 printer, DB ports Database Server, web ports Web Server, RDP/SMB
+    Workstation, else Host.
+  - Gateway: keep its role if it is already Router, Firewall or L3 Switch; otherwise classify it as Router.
+    Its tier becomes Gateway unless it is already Perimeter or Core. Use the web title as the model for
+    routers/cameras/printers when there is no other model.
+    Readable default names: router-1, pc-20, camera-nvr-30, printer-40.
+- Apply remembered human corrections from overrides.json (matched by MAC first, then IP + sysName) and add
+  evidence "override from human review on <date>".
+- Summary: devices enriched, via SNMP, via HTTP, vendors found, overrides applied.
+
+==================================================================
+AGENT 3: LINK AGENT (scan links in each device)
+==================================================================
+Goal: find how devices connect to each other.
+- For every device with SNMP, walk LLDP-MIB (local port, remote port, remote name, remote description,
+  management IP) and CISCO-CDP-MIB (device ID, address decoded from 0x-hex, port, platform; local port
+  from ifName). Skip duplicate neighbours.
+- Match each neighbour to a known device by management IP, then by normalised name. If there is no match,
+  add a neighbour-only device (via "LLDP"/"CDP") and classify it from the neighbour description.
+- Crawl: follow neighbour management IPs for N hops (0-5), limited to RFC1918 + loopback or a scope list.
+  New devices found by crawling go through the same Discovery probe and Enrichment classification steps.
+- Build links keyed "a|b" with ports from both ends and seen_from = which ends reported the link.
+- Gateway inference: every connected group of devices on the gateway's LAN that does not include the
+  gateway gets ONE link (source "inferred") from the gateway to that group's highest-tier device.
+- Summary: devices with neighbour tables, LLDP links, CDP links, inferred links, devices added by crawl.
+
+==================================================================
+AGENT 4: VERIFICATION AGENT (verify the devices)
+==================================================================
+Goal: check the results, score how much to trust each one, and flag what a human should look at.
+- Device confidence score (0-100), built from the evidence:
+  SNMP identity +40, ENTITY model +10, vendor from sysObjectID +15, HTTP title/brand +15, MAC vendor +5,
+  open ports +5, seen in a neighbour table +10, reverse DNS +5; cap at 100. Neighbour-only devices
+  start at 40. ARP-only devices start at 20.
+- Device checks (each adds an issue with severity info/warning/critical):
+  - Conflicting vendor between sources (e.g. sysObjectID says Cisco but the web title says Juniper).
+  - Role decided only by the port fallback ("weak classification").
+  - Name or model unknown.
+  - Same MAC on two IPs, or the same sysName on two IPs (possible duplicate).
+  - Neighbour-only device whose management IP does not answer.
+  - Gateway detected but not reachable, or more than one device marked as gateway.
+  - Security findings: Telnet open (critical), RDP/SMB on network devices, RTSP 554, admin web UI on
+    plain HTTP for a network device.
+- Re-probe: any device scoring below 50 is probed once more (SNMP + ports) with double timeouts; update
+  it if the second probe adds evidence, and record "re-verified" in the audit log.
+- Link checks:
+  - Confirmed in both directions = confidence 100; reported by one end only = 70 with an info issue;
+    port names that do not match what the other end reports = warning; inferred = 40 with an info issue
+    "assumed from gateway, not measured".
+  - Links to a device that no longer answers = warning.
+- Set every item to review_status "pending". Mark items as "auto-approve candidates" when confidence
+  >= 80 and they have no warning or critical issues.
+- Optional AI explanation (OFF by default, setting "llm" in the UI): if an OpenAI-compatible endpoint is
+  configured (for example a local Ollama URL or Azure OpenAI, set through environment variables), send ONLY
+  the device summary and issue list (no credentials, no community string) and add a one-paragraph
+  plain-English explanation per flagged device. If the call fails, continue without it.
+- Summary: devices verified, average confidence, counts of critical/warning/info issues, items needing
+  review, auto-approve candidates.
+
+==================================================================
+AGENT 5: HUMAN-IN-THE-LOOP AGENT (review and approve)
+==================================================================
+Goal: nothing is final until a person has reviewed it.
+- After Verification, the job waits in status "awaiting_review". The diagram shown during review is a
+  DRAFT (watermarked "DRAFT – pending review", pending items drawn with dotted outlines, rejected items
+  hidden).
+- The reviewer can:
+  - Approve or reject each device and each link.
+  - Edit a device: name, vendor, model, role, tier, gateway flag, notes. Edits set review_status "edited"
+    and are written to the audit log with before/after values.
+  - Add a manual link between two devices (source "manual", confidence 100) or edit link ports.
+  - Bulk actions: "Approve all auto-approve candidates", "Approve all", "Reject all ARP-only devices".
+  - Tick "Remember my corrections" so edits are saved to overrides.json for future scans.
+  - Rerun from any agent (for example rerun Links with crawl 3) without losing approvals of items that
+    still exist.
+  - Discard the scan (status "discarded").
+- Finalize is allowed only when there are no pending items with critical issues; otherwise show which items
+  are blocking it. On Finalize:
+  - Pending items are treated as approved only if the reviewer ticks "approve remaining pending items",
+    otherwise Finalize is refused.
+  - Rejected devices and links are left out of the final report.
+  - Ask for the reviewer name (stored in the audit log; no login system).
+  - Generate the final outputs (see REPORT) and set status "done".
+- A finalized scan can be reopened for review, which creates a new report version (v2, v3 ...) and keeps
+  the old one.
+
+==================================================================
+REPORT (report.py)
+==================================================================
+- Layout: a tree per connected group (gateway first, then by tier order Perimeter, Gateway/WAN, Core,
+  Distribution/Network, Edge/Access, Wireless, Endpoint); isolated devices in wrapped bottom rows; non-tree
+  links drawn as red dashed "redundant" lines.
+- netarch_report.html (offline), titled "NetArch — Verified Network Architecture":
+  header (target, mode, time, reviewer, version); KPI cards (devices, measured links, inferred links,
+  manual links, network devices, vendors, average confidence, open issues); inline SVG diagram (coloured
+  boxes with emoji icons by role, name / "vendor model" without repeated vendor / "IP · tier", a small
+  confidence badge, orthogonal links with port labels, dashed inferred links, blue manual links, red border
+  for critical issues, a pencil mark on human-edited devices, tooltips with IP/MAC/vendor/model/web
+  title/via/ports/confidence/issues); legend; insights; agent pipeline summary (each agent's duration and
+  summary); inventory table with confidence and review status; issues table; audit trail.
+- Insights (rule-based): totals and role/vendor counts (ignore "-"); multi-vendor note; single points of
+  failure when the graph is a tree; neighbour-only and ARP-only devices; randomized MAC count; network
+  devices without SNMP; AP PoE uplink; security findings; when all links are inferred, explain that no
+  device exposed LLDP/CDP so links were assumed from the gateway; when only the gateway was scanned,
+  suggest scanning its subnet; when there are no links, suggest enabling SNMP + LLDP/CDP, crawling from a
+  core switch, or including the gateway.
+- Also write netarch_inventory.csv (Name, IP, MAC, MACVendor, Vendor, Model, Role, Tier, IdentifiedVia,
+  OpenPorts, WebTitle, Location, Confidence, ReviewStatus, HumanEdited), netarch_links.csv,
+  netarch_topology.mmd (Mermaid; "-.-" inferred, "==>" manual), netarch_scan.json (final context),
+  netarch_audit.csv.
+
+==================================================================
+CLI (scan_cli.py)
+==================================================================
+python scan_cli.py <target> [--community] [--crawl N] [--scope CIDRs] [--gateway IP|auto|none]
+  [--max-hosts] [--port-offset] [--out netarch_output] [--no-browser]
+  [--review interactive|auto|skip]
+- interactive (default): after Verification, print a numbered table of devices and links with confidence
+  and issues, then accept commands: a <n> approve, r <n> reject, e <n> role=Router name=x, link a b,
+  approve-safe, finalize, discard.
+- auto: approve auto-approve candidates only, leave the rest pending, write a DRAFT report, and exit with
+  code 2 if anything still needs review.
+- skip: approve everything (for lab demos only; print a warning).
+Print a [LIVE] approval reminder before live scans.
+
+==================================================================
+WEB APP (app.py + templates/index.html, port 5002)
+==================================================================
+- Page title and header: "NetArch Scan", subtitle "5-agent discovery · Human-verified architecture".
+- Tab "New scan":
+  - Form: target, gateway (auto / IP / none), SNMP community, crawl hops 0-5, max hosts, port offset
+    (blank = auto), crawl scope, "AI explanations (optional)" toggle.
+  - Lab connection card (optional): Lab URL (default http://127.0.0.1:5001), "Load from NetArch Lab"
+    button using the backend /api/lab-info proxy, quick buttons "Lab subnet" and "Lab core switch + crawl"
+    (core_ip, crawl 4). If the lab is not reachable, show a friendly message; scanning still works.
+  - LAB/LIVE mode tag; for live targets a warning box with a REQUIRED "I have approval to scan" checkbox.
+    The server also rejects live scans without approval (HTTP 400).
+- Tab "Pipeline" (for the selected job):
+  - A horizontal stepper with 5 agent cards (Discovery, Enrichment, Links, Verification, Human Review):
+    status icon (waiting, running spinner, done tick, error, waiting-for-you), duration, key counts,
+    and a "Rerun from here" button.
+  - A progress bar and a dark log panel with a filter by agent, polled every 0.7s.
+- Tab "Review" (enabled when the job is awaiting_review; shows a badge with the number of pending items):
+  - Top: summary chips (pending, approved, edited, rejected, critical/warning/info issues), the bulk
+    action buttons and "Remember my corrections".
+  - Devices table: checkbox, confidence bar (red < 50, amber 50-79, green >= 80), name, IP, MAC, vendor,
+    model, role, tier, via, issue icons with tooltips (and the AI explanation if enabled), review status,
+    and Approve / Edit / Reject buttons. Filter: All / Needs review / Critical / Approved / Rejected.
+    Edit opens a pop-up with dropdowns for role and tier and shows the evidence list.
+  - Links table: device A + port, device B + port, source, seen from both ends yes/no, confidence,
+    issues, Approve / Edit ports / Reject. "Add manual link" form.
+  - Live draft diagram that updates after every review action.
+  - Finalize panel: reviewer name, "approve remaining pending items" checkbox, Finalize button
+    (disabled with the blocking reasons listed), and Discard.
+- Tab "Results": KPI cards, insights, the final report in an iframe plus "Open in new tab", report version
+  selector, and downloads for HTML / inventory CSV / links CSV / Mermaid / JSON / audit CSV.
+- History list (left side, all tabs): time, target, mode, status pill (Awaiting review highlighted),
+  device count; click to open; delete button (not while agents are running).
+- Jobs are saved under scans/<job-id>/ (context.json, scan.log, report versions) and reloaded on start,
+  including jobs that are still awaiting review. A job that was running when the app stopped is marked
+  "error: interrupted" with a "Rerun from" option.
+- REST API:
+  POST /api/scan                                  start a job
+  GET  /api/scans, GET/DELETE /api/scans/<id>     list, status (agent runs, counts, log), delete
+  GET  /api/scans/<id>/review                     devices, links, issues, draft SVG
+  PUT  /api/scans/<id>/devices/<key>              {action: approve|reject|edit, fields...}
+  PUT  /api/scans/<id>/links/<key>                {action: approve|reject|edit, a_port, b_port}
+  POST /api/scans/<id>/links                      add a manual link
+  POST /api/scans/<id>/bulk                       {action: approve_safe|approve_all|reject_arp_only}
+  POST /api/scans/<id>/rerun/<agent>              discovery|enrichment|links|verification
+  POST /api/scans/<id>/finalize                   {reviewer, approve_pending, remember}
+  POST /api/scans/<id>/discard, POST /api/scans/<id>/reopen
+  GET  /api/lab-info?url=...                      server-side fetch, 3s timeout, http/https only
+  GET  /scans/<id>/<file>                         whitelisted netarch_* files and scan.log; ?dl=1 to download
+  Review actions are only allowed while the job is awaiting_review (HTTP 409 otherwise).
+- Run: python app.py [--host 127.0.0.1] [--port 5002]. Bind to 127.0.0.1 by default; README notes there is
+  no login, that the reviewer name is not authenticated, and that scanning requires authorisation.
+- UI style matches NetArch Lab: navy/blue header gradient, white cards, pills, toasts, responsive.
+  Escape all text in the HTML.
+
+==================================================================
+README
+==================================================================
+Setup and run; a diagram of the 5-agent pipeline and what each agent owns; the review workflow described
+step by step; the confidence scoring table; how overrides.json works and how to clear it; how gateway
+inference works for devices without LLDP/CDP; the optional oui.csv; the optional AI explanation settings;
+security notes.
+
+==================================================================
+TESTS before finishing
+==================================================================
+(1) Unit tests with no lab: BER round trip; parse_targets (CIDR, range, list, too large, bad host);
+    classification of sample strings (CAT9K_IOSXE -> Cisco L3 Switch, ex4100 -> Juniper Switch,
+    FortiGate -> Firewall, NVR title -> IP Camera / NVR, LaserJet title -> Printer); confidence scoring;
+    vendor-conflict detection; one-sided link gets confidence 70.
+(2) With NetArch Lab running the campus sample: the pipeline runs agents 1-4 in order and stops at
+    awaiting_review; 13 devices, 12 LLDP links confirmed from both ends where both ends have SNMP; APs are
+    neighbour-only; edge-ex4000 has a critical Telnet issue that blocks Finalize until it is approved or
+    rejected; scanning only 127.20.20.10 with crawl 4 also finds all 13.
+(3) Gateway inference: add an unlinked printer (127.20.20.40) to the lab through its API and scan
+    127.20.20.0/24 with gateway 127.20.20.10; the printer gets one inferred link to core-ex4400 with
+    confidence 40, and core-ex4400 keeps its L3 Switch role.
+(4) Review: editing a device's role with "Remember my corrections" writes overrides.json, and a second scan
+    applies it automatically; rejected devices are missing from the final report; finalize writes the
+    reviewer into the audit CSV; reopen creates report v2.
+(5) Rerun from Links with crawl changed keeps existing approvals.
+(6) A live scan without approval is rejected; /api/lab-info handles a stopped lab gracefully;
+    --review auto exits with code 2 when items are pending.
+(7) JavaScript passes "node --check".
