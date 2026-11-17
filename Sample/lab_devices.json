@@ -1,0 +1,110 @@
+{
+  "devices": [
+    {
+      "id": "34ed0643",
+      "name": "syrotech-ont",
+      "ip": "127.20.20.1",
+      "template": "syrotech-ont",
+      "snmp": false,
+      "descr": "",
+      "oid": "",
+      "svc": 0,
+      "model": "",
+      "location": "Hall",
+      "desc": "Syrotech SY-GPON-2010-WADONT",
+      "ports": [
+        80,
+        53
+      ]
+    },
+    {
+      "id": "ceee5d6d",
+      "name": "laptop-01",
+      "ip": "127.20.20.20",
+      "template": "windows-pc",
+      "snmp": false,
+      "descr": "",
+      "oid": "",
+      "svc": 0,
+      "model": "",
+      "location": "",
+      "desc": "Windows 11 Home",
+      "ports": [
+        445,
+        3389
+      ]
+    },
+    {
+      "id": "7225400e",
+      "name": "laptop-02",
+      "ip": "127.20.20.21",
+      "template": "windows-pc",
+      "snmp": false,
+      "descr": "",
+      "oid": "",
+      "svc": 0,
+      "model": "",
+      "location": "",
+      "desc": "Windows 11 Home",
+      "ports": [
+        445
+      ]
+    },
+    {
+      "id": "247a0c4b",
+      "name": "cctv-nvr",
+      "ip": "127.20.20.30",
+      "template": "cctv-nvr",
+      "snmp": false,
+      "descr": "",
+      "oid": "",
+      "svc": 0,
+      "model": "",
+      "location": "",
+      "desc": "Network Video Recorder (NVR) Login",
+      "ports": [
+        80,
+        554
+      ]
+    },
+    {
+      "id": "869ea473",
+      "name": "printer",
+      "ip": "127.20.20.40",
+      "template": "printer",
+      "snmp": false,
+      "descr": "",
+      "oid": "",
+      "svc": 0,
+      "model": "",
+      "location": "",
+      "desc": "HP LaserJet MFP",
+      "ports": [
+        80,
+        9100
+      ]
+    },
+    {
+      "id": "f6821828",
+      "name": "nas-01",
+      "ip": "127.20.20.50",
+      "template": "linux-web",
+      "snmp": false,
+      "descr": "",
+      "oid": "",
+      "svc": 0,
+      "model": "",
+      "location": "",
+      "desc": "Synology DiskStation",
+      "ports": [
+        80,
+        443,
+        445
+      ]
+    }
+  ],
+  "links": [],
+  "community": "public",
+  "sample": "home",
+  "gateway": "127.20.20.1"
+}
