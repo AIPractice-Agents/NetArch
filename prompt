@@ -22,7 +22,7 @@ PART 1: ENGINE (netsim_ai.py)
      and CISCO-CDP-MIB (device ID, address, port, platform) with ifName for local port names.
 
 2. Virtual lab (no admin rights needed):
-   - Each device gets its own loopback IP in 127.20.20.0/24.
+   - Each device gets its own loopback IP in 192.20.20.0/24.
    - All ports use an offset of 20000 (SNMP 161 becomes 20161, SSH 22 becomes 20022, and so on).
    - Each network device runs a threaded UDP SNMP agent that answers with its identity
      (sysDescr, sysObjectID, sysServices, model) and an LLDP neighbour table that includes management IPs.
