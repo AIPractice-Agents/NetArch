@@ -1,0 +1,10 @@
+Using the existing NetArch Scan engine, build the full app with a Flask web UI on port 5002 (only the UI uses Flask; keep the engine standard library only). Do not rewrite the engine, and keep the CLI working.
+
+Single page, plain HTML/CSS/JS, no frameworks, no CDN, header "NetArch Scan - 5-agent discovery · Human-verified architecture", with these tabs:
+- New scan: target, gateway, community, crawl hops, max hosts, port offset. Include a Lab URL box that loads settings from the lab's /api/info through a backend proxy. Live targets need an "I have approval to scan" checkbox, enforced by the server.
+- Pipeline: 5 agent cards with status, duration and "rerun from here", plus a progress bar and a live log.
+- Review: devices and links tables with confidence bars, issue tooltips, and Approve / Edit / Reject buttons. Also add a manual link form, bulk actions, a "Remember my corrections" option, a live draft diagram, and a Finalize panel (reviewer name, blocking reasons, Discard).
+- Results: KPIs, insights, the report in an iframe, a version selector, and downloads.
+- A history list on the left.
+
+Save jobs under scans/<id>/ and reload them on start. Add REST endpoints for scan, review, device and link edits, bulk, rerun, finalize, discard, reopen, and lab-info. Return 409 for review actions outside awaiting_review and for scans while one is already running. Write a README, then test the full API flow against the lab, the 409 and 400 cases, a restart reload, and run node --check on the JavaScript.
