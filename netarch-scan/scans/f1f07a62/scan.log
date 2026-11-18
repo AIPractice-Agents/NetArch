@@ -1,0 +1,72 @@
+[Discovery] Parsed 254 target(s) from: '172.19.0.0/24'
+[Discovery]   + 172.19.0.255 via ARP
+[Discovery]   + 172.19.0.6 via Ports+ARP
+[Discovery]   + 172.19.0.7 via Ports+ARP
+[Discovery]   + 172.19.0.4 via Ports
+[Discovery]   + 172.19.0.9 via Ports+ARP
+[Discovery]   + 172.19.0.1 via ARP
+[Discovery]   + 172.19.0.27 via Ports+ARP
+[Discovery]   + 172.19.0.28 via Ports+ARP
+[Discovery]   + 172.19.0.29 via Ports+ARP
+[Discovery]   + 172.19.0.45 via Ports+ARP
+[Discovery]   + 172.19.0.37 via Ports+ARP
+[Discovery]   + 172.19.0.46 via Ports+ARP
+[Discovery]   + 172.19.0.47 via Ports+ARP
+[Discovery]   + 172.19.0.44 via ARP
+[Discovery]   + 172.19.0.33 via ARP
+[Discovery]   + 172.19.0.38 via ARP
+[Discovery]   + 172.19.0.255 via ARP
+[Discovery]   Gateway detected: 172.19.0.1
+[Discovery] Probed 255 hosts in 19.5s; found 16 live. Methods: {'Ports': 11, 'ARP': 15}. Gateway: 172.19.0.1.
+[Enrichment] Loaded 0 override(s) from overrides.json
+[Enrichment]   enriched 172.19.0.6 -> - - [Web Server] conf=20
+[Enrichment]   enriched 172.19.0.7 -> - - [Database Server] conf=5
+[Enrichment]   enriched 172.19.0.4 -> - - [Workstation] conf=10
+[Enrichment]   enriched 172.19.0.9 -> - - [Web Server] conf=20
+[Enrichment]   enriched 172.19.0.1 -> - - [Router] conf=20
+[Enrichment]   enriched 172.19.0.27 -> - - [Web Server] conf=5
+[Enrichment]   enriched 172.19.0.28 -> - - [Web Server] conf=5
+[Enrichment]   enriched 172.19.0.29 -> - - [Web Server] conf=5
+[Enrichment]   enriched 172.19.0.45 -> - - [Web Server] conf=5
+[Enrichment]   enriched 172.19.0.37 -> - - [Database Server] conf=5
+[Enrichment]   enriched 172.19.0.46 -> - - [Web Server] conf=5
+[Enrichment]   enriched 172.19.0.47 -> - - [Web Server] conf=5
+[Enrichment]   enriched 172.19.0.44 -> - - [Host] conf=20
+[Enrichment]   enriched 172.19.0.33 -> - - [Host] conf=20
+[Enrichment]   enriched 172.19.0.38 -> - - [Host] conf=20
+[Enrichment]   enriched 172.19.0.255 -> - - [Host] conf=20
+[Enrichment] Enriched 16 devices in 159.3s; SNMP 0, HTTP 2, vendors: [], overrides: 0.
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.47
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.27
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.44
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.28
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.45
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.255
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.38
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.46
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.4
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.29
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.37
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.7
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.33
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.9
+[Links]   inferred link: 172.19.0.1 <-> 172.19.0.6
+[Links] Processed 16 devices in 144.6s; LLDP links: 0, CDP: 0, inferred: 15, crawl added: 0.
+[Verification]   Re-probing 172.19.0.6 (conf=20)
+[Verification]   Re-probing 172.19.0.7 (conf=5)
+[Verification]   Re-probing 172.19.0.4 (conf=10)
+[Verification]   Re-probing 172.19.0.9 (conf=20)
+[Verification]   Re-probing 172.19.0.1 (conf=20)
+[Verification]   Re-probing 172.19.0.27 (conf=5)
+[Verification]   Re-probing 172.19.0.28 (conf=5)
+[Verification]   Re-probing 172.19.0.29 (conf=5)
+[Verification]   Re-probing 172.19.0.45 (conf=5)
+[Verification]   Re-probing 172.19.0.37 (conf=5)
+[Verification]   Re-probing 172.19.0.46 (conf=5)
+[Verification]   Re-probing 172.19.0.47 (conf=5)
+[Verification]   Re-probing 172.19.0.44 (conf=20)
+[Verification]   Re-probing 172.19.0.33 (conf=20)
+[Verification]   Re-probing 172.19.0.38 (conf=20)
+[Verification]   Re-probing 172.19.0.255 (conf=20)
+[Verification] Verified 16 devices in 590.3s. Avg confidence: 12. Issues: {'critical': 0, 'warning': 14, 'info': 31}. Needs review: 16, auto-approve: 0.
+[Human Review] Awaiting review: 16 devices pending (0 auto-approve candidates), 15 links pending.

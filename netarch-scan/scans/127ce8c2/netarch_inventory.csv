@@ -1,0 +1,14 @@
+Name,IP,MAC,MACVendor,Vendor,Model,Role,Tier,IdentifiedVia,OpenPorts,WebTitle,Location,Confidence,ReviewStatus,HumanEdited
+l3switch-10,127.20.20.10,,,Juniper,EX4400-24X,L3 Switch,Core,"SNMP,Ports","20022,20443",EX4400-24X,,80,approved,No
+l3switch-11,127.20.20.11,,,Cisco,C9300-48P,L3 Switch,Distribution,"SNMP,Ports","20022,20443",C9300-48P,,80,approved,No
+switch-12,127.20.20.12,,,Cisco,C9200-24P,Switch,Access,"SNMP,Ports","20022,20443",C9200-24P,,80,approved,No
+switch-13,127.20.20.13,,,Juniper,EX4100-48MP,Switch,Access,"SNMP,Ports","20022,20443",EX4100-48MP,,80,approved,No
+switch-14,127.20.20.14,,,Juniper,EX4000-8P,Switch,Edge,"SNMP,Ports","20022,20023",,,80,approved,No
+ap45-01,127.20.20.21,,,Juniper,Juniper,Wireless AP,Wireless,LLDP,,,,65,pending,No
+ap45-02,127.20.20.22,,,Juniper,Juniper,Wireless AP,Wireless,LLDP,,,,65,pending,No
+host-31,127.20.20.31,,,-,-,Host,Endpoint,Ports,"20445,23389",,,40,pending,No
+host-32,127.20.20.32,,,-,-,Host,Endpoint,Ports,20445,,,40,pending,No
+host-33,127.20.20.33,,,-,-,Host,Endpoint,Ports,20445,,,40,pending,No
+host-34,127.20.20.34,,,-,-,Host,Endpoint,Ports,23389,,,40,pending,No
+host-41,127.20.20.41,,,-,-,Host,Endpoint,Ports,"20022,20080,20443",Ubuntu 24.04 LTS nginx,,40,pending,No
+host-42,127.20.20.42,,,-,-,Host,Endpoint,Ports,"20022,23306",,,40,pending,No

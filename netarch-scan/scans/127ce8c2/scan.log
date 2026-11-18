@@ -1,0 +1,35 @@
+[Discovery] Parsed 254 target(s) from: '127.20.20.0/24'
+[Discovery]   + 127.20.20.10 via SNMP+Ports
+[Discovery]   + 127.20.20.14 via SNMP+Ports
+[Discovery]   + 127.20.20.32 via Ports
+[Discovery]   + 127.20.20.33 via Ports
+[Discovery]   + 127.20.20.42 via Ports
+[Discovery]   + 127.20.20.34 via Ports
+[Discovery]   + 127.20.20.13 via SNMP+Ports
+[Discovery]   + 127.20.20.11 via SNMP+Ports
+[Discovery]   + 127.20.20.12 via SNMP+Ports
+[Discovery]   + 127.20.20.31 via Ports
+[Discovery]   + 127.20.20.41 via Ports
+[Discovery] Probed 254 hosts in 30.3s; found 11 live. Methods: {'SNMP': 5, 'Ports': 11}. Gateway: none.
+[Enrichment] Loaded 0 override(s) from overrides.json
+[Enrichment]   enriched 127.20.20.10 -> Juniper EX4400-24X [L3 Switch] conf=70
+[Enrichment]   enriched 127.20.20.14 -> Juniper EX4000-8P [Switch] conf=70
+[Enrichment]   enriched 127.20.20.32 -> - - [Host] conf=5
+[Enrichment]   enriched 127.20.20.33 -> - - [Host] conf=5
+[Enrichment]   enriched 127.20.20.42 -> - - [Host] conf=5
+[Enrichment]   enriched 127.20.20.34 -> - - [Host] conf=5
+[Enrichment]   enriched 127.20.20.13 -> Juniper EX4100-48MP [Switch] conf=70
+[Enrichment]   enriched 127.20.20.11 -> Cisco C9300-48P [L3 Switch] conf=70
+[Enrichment]   enriched 127.20.20.12 -> Cisco C9200-24P [Switch] conf=70
+[Enrichment]   enriched 127.20.20.31 -> - - [Host] conf=5
+[Enrichment]   enriched 127.20.20.41 -> - - [Host] conf=20
+[Enrichment] Enriched 11 devices in 1.2s; SNMP 0, HTTP 5, vendors: ['Cisco', 'Juniper'], overrides: 0.
+[Links] Processed 11 devices in 5.6s; LLDP links: 16, CDP: 0, inferred: 0, crawl added: 0.
+[Verification]   Re-probing 127.20.20.32 (conf=40)
+[Verification]   Re-probing 127.20.20.33 (conf=40)
+[Verification]   Re-probing 127.20.20.42 (conf=40)
+[Verification]   Re-probing 127.20.20.34 (conf=40)
+[Verification]   Re-probing 127.20.20.31 (conf=40)
+[Verification]   Re-probing 127.20.20.41 (conf=40)
+[Verification] Verified 13 devices in 172.9s. Avg confidence: 59. Issues: {'critical': 1, 'warning': 0, 'info': 18}. Needs review: 9, auto-approve: 4.
+[Human Review] Awaiting review: 13 devices pending (4 auto-approve candidates), 12 links pending.

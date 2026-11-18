@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetArch Scan</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f6f9;color:#222;min-height:100vh}
+header{background:linear-gradient(135deg,#1a237e 0%,#1976d2 100%);color:white;
+  padding:14px 24px;display:flex;align-items:center;gap:16px}
+header h1{font-size:1.4em;font-weight:700}
+header .sub{font-size:.85em;opacity:.8;margin-top:2px}
+.layout{display:flex;min-height:calc(100vh - 60px)}
+.sidebar{width:270px;min-width:220px;background:white;border-right:1px solid #e0e4f0;
+  padding:14px 10px;overflow-y:auto}
+.sidebar h3{font-size:.85em;color:#666;text-transform:uppercase;letter-spacing:.05em;
+  padding:0 6px;margin-bottom:8px}
+.job-item{padding:8px 10px;border-radius:7px;cursor:pointer;margin-bottom:4px;
+  border:1px solid transparent;transition:.15s}
+.job-item:hover{background:#e8eeff;border-color:#c5cef5}
+.job-item.selected{background:#e3eaf8;border-color:#1976d2}
+.job-item .jt{font-size:.82em;color:#1976d2;font-weight:600;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+.job-item .jm{font-size:.75em;color:#888;margin-top:2px}
+.pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.72em;
+  font-weight:600;vertical-align:middle}
+.pill-blue{background:#1976d2;color:white}
+.pill-green{background:#388e3c;color:white}
+.pill-amber{background:#f57c00;color:white}
+.pill-red{background:#c62828;color:white}
+.pill-grey{background:#757575;color:white}
+.pill-teal{background:#00796b;color:white}
+.del-btn{float:right;background:none;border:none;color:#ccc;cursor:pointer;
+  font-size:1em;padding:0 2px}
+.del-btn:hover{color:#e53935}
+.main{flex:1;padding:0;overflow-y:auto}
+.tabs{display:flex;border-bottom:2px solid #e0e4f0;background:white;
+  padding:0 20px;gap:4px}
+.tab-btn{padding:12px 18px;background:none;border:none;cursor:pointer;
+  font-size:.9em;color:#555;border-bottom:3px solid transparent;
+  transition:.15s;position:relative}
+.tab-btn:hover{color:#1976d2}
+.tab-btn.active{color:#1976d2;border-bottom-color:#1976d2;font-weight:600}
+.tab-btn .badge{background:#e53935;color:white;border-radius:9px;padding:1px 6px;
+  font-size:.7em;margin-left:4px}
+.tab-panel{display:none;padding:18px 22px}
+.tab-panel.active{display:block}
+.card{background:white;border-radius:9px;padding:16px 20px;
+  box-shadow:0 1px 4px rgba(0,0,0,.09);margin-bottom:14px}
+.card h3{font-size:1em;color:#1976d2;margin-bottom:10px}
+label{display:block;font-size:.85em;color:#555;margin-bottom:3px;margin-top:8px}
+input[type=text],input[type=number],select{
+  width:100%;padding:7px 10px;border:1px solid #d0d5e8;border-radius:6px;
+  font-size:.9em;background:white}
+input:focus,select:focus{outline:none;border-color:#1976d2}
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.btn{padding:8px 18px;border:none;border-radius:6px;cursor:pointer;
+  font-size:.88em;font-weight:600;transition:.15s}
+.btn-primary{background:#1976d2;color:white}
+.btn-primary:hover{background:#1565c0}
+.btn-secondary{background:#e3eaf8;color:#1976d2}
+.btn-secondary:hover{background:#c5cef5}
+.btn-danger{background:#e53935;color:white}
+.btn-danger:hover{background:#b71c1c}
+.btn-success{background:#388e3c;color:white}
+.btn-success:hover{background:#1b5e20}
+.btn-sm{padding:4px 12px;font-size:.8em}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.warning-box{background:#fff8e1;border:1px solid #ffcc02;border-radius:7px;
+  padding:10px 14px;font-size:.85em;color:#7c5000;margin-top:8px}
+.error-box{background:#ffebee;border:1px solid #ef9a9a;border-radius:7px;
+  padding:10px 14px;font-size:.85em;color:#b71c1c;margin-top:8px}
+.info-box{background:#e3f2fd;border:1px solid #90caf9;border-radius:7px;
+  padding:10px 14px;font-size:.85em;color:#0d47a1;margin-top:8px}
+.stepper{display:flex;gap:0;margin-bottom:16px;overflow-x:auto}
+.step-card{flex:1;min-width:130px;background:white;border:1px solid #e0e4f0;
+  border-radius:8px;padding:12px 10px;text-align:center;position:relative;
+  margin-right:4px}
+.step-card .step-icon{font-size:1.5em;margin-bottom:4px}
+.step-card .step-name{font-size:.8em;font-weight:600;color:#1976d2;margin-bottom:2px}
+.step-card .step-status{font-size:.75em;color:#888}
+.step-card .step-dur{font-size:.72em;color:#aaa;margin-top:2px}
+.step-card.running{border-color:#1976d2;background:#f0f4ff}
+.step-card.done{border-color:#43a047;background:#f1f8f1}
+.step-card.error{border-color:#e53935;background:#fff5f5}
+.step-card.waiting{opacity:.6}
+.progress-bar{height:6px;background:#e0e4f0;border-radius:3px;overflow:hidden;
+  margin-bottom:10px}
+.progress-fill{height:100%;background:#1976d2;transition:width .3s}
+.log-panel{background:#1a1a2e;color:#a9f1df;font-family:monospace;font-size:.78em;
+  padding:10px;border-radius:7px;height:220px;overflow-y:auto;white-space:pre-wrap}
+.log-filter{display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+.log-filter-btn{padding:3px 10px;border:1px solid #d0d5e8;border-radius:12px;
+  background:white;cursor:pointer;font-size:.78em}
+.log-filter-btn.active{background:#1976d2;color:white;border-color:#1976d2}
+.review-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.chip{padding:5px 14px;border-radius:14px;font-size:.82em;font-weight:600;
+  background:#e3eaf8;color:#1a237e}
+.chip.crit{background:#ffebee;color:#b71c1c}
+.chip.warn{background:#fff8e1;color:#7c5000}
+.chip.info{background:#e8f5e9;color:#1b5e20}
+table{border-collapse:collapse;width:100%;font-size:.82em}
+th{background:#e3eaf8;padding:7px 8px;text-align:left;font-size:.8em;
+  position:sticky;top:0}
+td{padding:6px 8px;border-bottom:1px solid #e8ecf2;vertical-align:middle}
+tr:hover td{background:#f5f8ff}
+.conf-bar{height:10px;border-radius:5px;display:inline-block;min-width:30px}
+.conf-label{font-size:.78em;color:#555;margin-left:4px}
+.issue-icon{font-size:.9em;cursor:default}
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:white;border-radius:10px;padding:22px 24px;min-width:380px;
+  max-width:580px;width:100%;max-height:90vh;overflow-y:auto}
+.modal h3{margin-bottom:14px;color:#1a237e}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.svg-wrap{overflow-x:auto;padding:4px;background:#f8f9fa;border-radius:7px}
+.kpi-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.kpi-card{background:white;border-radius:7px;padding:10px 16px;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);text-align:center;min-width:100px}
+.kpi-card .val{font-size:1.6em;font-weight:bold;color:#1976d2}
+.kpi-card .lbl{font-size:.75em;color:#666;margin-top:2px}
+.toast-wrap{position:fixed;top:14px;right:14px;z-index:9999;
+  display:flex;flex-direction:column;gap:6px}
+.toast{padding:10px 18px;border-radius:7px;font-size:.88em;
+  box-shadow:0 2px 8px rgba(0,0,0,.18);animation:fadeIn .3s}
+.toast-ok{background:#388e3c;color:white}
+.toast-err{background:#c62828;color:white}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.rerun-btn{font-size:.72em;padding:3px 8px;margin-top:4px}
+select[multiple]{height:70px}
+.bulk-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.table-wrap{overflow-x:auto}
+.ev-list{font-size:.75em;color:#666;max-height:80px;overflow-y:auto;
+  background:#f8f9fa;border-radius:4px;padding:4px 6px;margin-top:4px}
+iframe.report-frame{width:100%;height:70vh;border:none;border-radius:7px}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid #d0d5e8;
+  border-top-color:#1976d2;border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.link-add-form{display:grid;grid-template-columns:1fr 1fr auto auto;
+  gap:8px;align-items:end;margin-top:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>NetArch Scan</h1>
+    <div class="sub">5-agent discovery · Human-verified architecture</div>
+  </div>
+</header>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<div class="layout">
+  <!-- Sidebar: job history -->
+  <div class="sidebar">
+    <h3>Scan History</h3>
+    <div id="jobList">Loading...</div>
+  </div>
+
+  <!-- Main area -->
+  <div class="main">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('new')">New Scan</button>
+      <button class="tab-btn" id="tabPipeline" onclick="showTab('pipeline')">Pipeline</button>
+      <button class="tab-btn" id="tabReview" onclick="showTab('review')">
+        Review <span class="badge" id="pendingBadge" style="display:none">0</span>
+      </button>
+      <button class="tab-btn" id="tabResults" onclick="showTab('results')">Results</button>
+    </div>
+
+    <!-- ===================== NEW SCAN TAB ===================== -->
+    <div id="tab-new" class="tab-panel active">
+      <div class="card">
+        <h3>Scan Target</h3>
+        <label>Target (IP, CIDR, range, hostname, comma list, or @file)</label>
+        <input type="text" id="inTarget" placeholder="e.g. 10.0.0.0/24 or 127.20.20.0/24">
+        <div id="modeTag" style="margin-top:6px"></div>
+        <div id="liveWarning" class="warning-box" style="display:none">
+          <b>⚠️ Live scan:</b> Only scan networks you are authorised to scan.<br>
+          <label style="margin-top:8px;display:flex;align-items:center;gap:6px;cursor:pointer">
+            <input type="checkbox" id="chkApproval"> I have approval to scan this network
+          </label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Settings</h3>
+        <div class="row-3">
+          <div>
+            <label>SNMP Community</label>
+            <input type="text" id="inCommunity" value="public">
+          </div>
+          <div>
+            <label>Gateway</label>
+            <select id="inGateway">
+              <option value="auto">auto</option>
+              <option value="none">none</option>
+              <option value="custom">custom IP...</option>
+            </select>
+            <input type="text" id="inGatewayIP" placeholder="Gateway IP"
+                   style="display:none;margin-top:4px">
+          </div>
+          <div>
+            <label>Crawl Hops (0-5)</label>
+            <input type="number" id="inCrawl" value="0" min="0" max="5">
+          </div>
+        </div>
+        <div class="row-3">
+          <div>
+            <label>Port Offset (blank=auto)</label>
+            <input type="text" id="inOffset" placeholder="auto">
+          </div>
+          <div>
+            <label>Max Hosts</label>
+            <input type="number" id="inMaxHosts" value="4096">
+          </div>
+          <div>
+            <label>Crawl Scope (CIDRs, comma)</label>
+            <input type="text" id="inScope" placeholder="optional">
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;align-items:center;gap:10px">
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer">
+            <input type="checkbox" id="chkLLM"> AI explanations (optional)
+          </label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>NetArch Lab (optional)</h3>
+        <div style="display:flex;gap:8px;align-items:flex-end">
+          <div style="flex:1">
+            <label>Lab URL</label>
+            <input type="text" id="inLabUrl" value="http://127.0.0.1:5001">
+          </div>
+          <button class="btn btn-secondary" onclick="loadLabInfo()">Load from NetArch Lab</button>
+        </div>
+        <div id="labInfo" class="info-box" style="display:none;margin-top:8px"></div>
+        <div id="labError" class="error-box" style="display:none;margin-top:8px"></div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn btn-secondary btn-sm" id="btnLabSubnet"
+                  style="display:none" onclick="useLabSubnet()">Lab subnet</button>
+          <button class="btn btn-secondary btn-sm" id="btnLabCore"
+                  style="display:none" onclick="useLabCore()">Lab core switch + crawl</button>
+        </div>
+      </div>
+
+      <div style="padding:0 0 14px 0">
+        <button class="btn btn-primary" id="btnStartScan" onclick="startScan()"
+                style="font-size:1em;padding:10px 28px">
+          Start Scan
+        </button>
+        <span id="startError" class="error-box" style="display:none;margin-left:12px"></span>
+      </div>
+    </div>
+
+    <!-- ===================== PIPELINE TAB ===================== -->
+    <div id="tab-pipeline" class="tab-panel">
+      <div id="pipelineContent">
+        <p style="color:#888;margin:20px">Select a scan to view the pipeline.</p>
+      </div>
+    </div>
+
+    <!-- ===================== REVIEW TAB ===================== -->
+    <div id="tab-review" class="tab-panel">
+      <div id="reviewContent">
+        <p style="color:#888;margin:20px">No scan awaiting review.</p>
+      </div>
+    </div>
+
+    <!-- ===================== RESULTS TAB ===================== -->
+    <div id="tab-results" class="tab-panel">
+      <div id="resultsContent">
+        <p style="color:#888;margin:20px">No completed scan selected.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Device Modal -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h3>Edit Device</h3>
+    <input type="hidden" id="editKey">
+    <label>Name</label>
+    <input type="text" id="editName">
+    <label>Vendor</label>
+    <input type="text" id="editVendor">
+    <label>Model</label>
+    <input type="text" id="editModel">
+    <label>Role</label>
+    <select id="editRole">
+      <option>Router</option><option>L3 Switch</option><option>Switch</option>
+      <option>Firewall</option><option>Wireless AP</option>
+      <option>IP Camera / NVR</option><option>Printer</option>
+      <option>NAS / Storage</option><option>IP Phone</option>
+      <option>Database Server</option><option>Web Server</option>
+      <option>Workstation</option><option>Host</option>
+    </select>
+    <label>Tier</label>
+    <select id="editTier">
+      <option>Perimeter</option><option>Gateway</option><option>WAN</option>
+      <option>Core</option><option>Distribution</option><option>Network</option>
+      <option>Edge</option><option>Access</option><option>Wireless</option>
+      <option>Endpoint</option><option>Unknown</option>
+    </select>
+    <label>Notes</label>
+    <input type="text" id="editNotes">
+    <label style="margin-top:8px;display:flex;align-items:center;gap:6px;cursor:pointer">
+      <input type="checkbox" id="editIsGateway"> Mark as gateway
+    </label>
+    <div id="editEvidence" class="ev-list" style="margin-top:8px"></div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveDeviceEdit()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// =========================================================
+// State
+// =========================================================
+let selectedJobId = null;
+let pollTimer = null;
+let reviewData = null;
+let labData = null;
+let currentReviewer = '';
+
+// =========================================================
+// Tabs
+// =========================================================
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event && event.target && event.target.classList.add('active');
+  if (name === 'review' && selectedJobId) loadReview(selectedJobId);
+  if (name === 'pipeline' && selectedJobId) loadPipeline(selectedJobId);
+  if (name === 'results' && selectedJobId) loadResults(selectedJobId);
+}
+
+// =========================================================
+// Toasts
+// =========================================================
+function toast(msg, ok=true) {
+  const w = document.getElementById('toastWrap');
+  const d = document.createElement('div');
+  d.className = 'toast ' + (ok ? 'toast-ok' : 'toast-err');
+  d.textContent = msg;
+  w.appendChild(d);
+  setTimeout(() => d.remove(), 3200);
+}
+
+// =========================================================
+// Lab connection
+// =========================================================
+async function loadLabInfo() {
+  const url = document.getElementById('inLabUrl').value.trim();
+  document.getElementById('labInfo').style.display = 'none';
+  document.getElementById('labError').style.display = 'none';
+  document.getElementById('btnLabSubnet').style.display = 'none';
+  document.getElementById('btnLabCore').style.display = 'none';
+  try {
+    const res = await fetch('/api/lab-info?url=' + encodeURIComponent(url));
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Error');
+    labData = data;
+    const el = document.getElementById('labInfo');
+    el.style.display = 'block';
+    el.innerHTML = `<b>Lab connected</b>: subnet <code>${escH(data.subnet)}</code>, 
+      offset <code>${escH(String(data.offset))}</code>, 
+      community <code>${escH(data.community)}</code>, 
+      ${(data.devices||[]).length} devices`;
+    document.getElementById('btnLabSubnet').style.display = '';
+    if (data.core_ip) document.getElementById('btnLabCore').style.display = '';
+  } catch(e) {
+    const el = document.getElementById('labError');
+    el.style.display = 'block';
+    el.textContent = 'Lab not reachable: ' + e.message + '. Scanning still works.';
+    labData = null;
+  }
+}
+
+function useLabSubnet() {
+  if (!labData) return;
+  document.getElementById('inTarget').value = labData.subnet;
+  document.getElementById('inCommunity').value = labData.community || 'public';
+  document.getElementById('inOffset').value = labData.offset || 20000;
+  updateModeTag();
+}
+function useLabCore() {
+  if (!labData || !labData.core_ip) return;
+  document.getElementById('inTarget').value = labData.core_ip;
+  document.getElementById('inCommunity').value = labData.community || 'public';
+  document.getElementById('inOffset').value = labData.offset || 20000;
+  document.getElementById('inCrawl').value = 4;
+  updateModeTag();
+}
+
+// =========================================================
+// Mode tag
+// =========================================================
+function updateModeTag() {
+  const t = document.getElementById('inTarget').value.trim();
+  const tag = document.getElementById('modeTag');
+  const warn = document.getElementById('liveWarning');
+  const isLab = /^127\./.test(t) || (labData && t.includes(labData.subnet));
+  if (!t) { tag.innerHTML=''; warn.style.display='none'; return; }
+  if (isLab) {
+    tag.innerHTML = '<span class="pill pill-teal">LAB</span>';
+    warn.style.display = 'none';
+  } else {
+    tag.innerHTML = '<span class="pill pill-amber">LIVE</span>';
+    warn.style.display = 'block';
+  }
+}
+document.getElementById('inTarget').addEventListener('input', updateModeTag);
+document.getElementById('inGateway').addEventListener('change', function() {
+  document.getElementById('inGatewayIP').style.display =
+    this.value === 'custom' ? '' : 'none';
+});
+
+// =========================================================
+// Start scan
+// =========================================================
+async function startScan() {
+  const target = document.getElementById('inTarget').value.trim();
+  const errEl = document.getElementById('startError');
+  errEl.style.display = 'none';
+  if (!target) { errEl.style.display=''; errEl.textContent='Target required.'; return; }
+
+  const isLive = !/^127\./.test(target);
+  const approval = isLive ? (document.getElementById('chkApproval').checked
+    ? 'I have approval to scan' : '') : '';
+  if (isLive && !approval) {
+    errEl.style.display=''; errEl.textContent='Check the approval box for live scans.'; return;
+  }
+
+  let gw = document.getElementById('inGateway').value;
+  if (gw === 'custom') gw = document.getElementById('inGatewayIP').value.trim();
+
+  const offset = document.getElementById('inOffset').value.trim();
+  const body = {
+    target,
+    community: document.getElementById('inCommunity').value.trim() || 'public',
+    crawl: parseInt(document.getElementById('inCrawl').value)||0,
+    scope: document.getElementById('inScope').value.trim(),
+    gateway: gw,
+    max_hosts: parseInt(document.getElementById('inMaxHosts').value)||4096,
+    offset: offset === '' ? null : parseInt(offset),
+    llm: document.getElementById('chkLLM').checked,
+    live: isLive,
+    approval,
+  };
+
+  document.getElementById('btnStartScan').disabled = true;
+  try {
+    const res = await fetch('/api/scan', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      errEl.style.display=''; errEl.textContent = data.error || 'Error starting scan';
+    } else {
+      toast('Scan started: ' + data.job_id);
+      selectedJobId = data.job_id;
+      await refreshJobList();
+      showTab('pipeline');
+      startPolling();
+    }
+  } catch(e) {
+    errEl.style.display=''; errEl.textContent = e.message;
+  } finally {
+    document.getElementById('btnStartScan').disabled = false;
+  }
+}
+
+// =========================================================
+// Job list
+// =========================================================
+async function refreshJobList() {
+  try {
+    const res = await fetch('/api/scans');
+    const jobs = await res.json();
+    const el = document.getElementById('jobList');
+    if (!jobs.length) { el.innerHTML='<p style="color:#aaa;font-size:.82em;padding:6px">No scans yet.</p>'; return; }
+    el.innerHTML = jobs.map(j => {
+      const pill = statusPill(j.status);
+      return `<div class="job-item${j.job_id===selectedJobId?' selected':''}" 
+              onclick="selectJob('${escH(j.job_id)}')">
+        <button class="del-btn" onclick="deleteJob(event,'${escH(j.job_id)}')" title="Delete">🗑</button>
+        <div class="jt">${escH(j.target||'(no target)')}</div>
+        <div class="jm">${escH(j.created.slice(0,16))} ${pill} 
+          ${j.device_count?j.device_count+' dev':''}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {}
+}
+
+function statusPill(s) {
+  const map = {
+    queued:'grey', discovery:'blue', enrichment:'blue', links:'blue',
+    verification:'blue', awaiting_review:'amber', finalizing:'blue',
+    done:'green', discarded:'grey', error:'red', empty:'grey'
+  };
+  const cls = map[s]||'grey';
+  return `<span class="pill pill-${cls}">${escH(s)}</span>`;
+}
+
+async function selectJob(id) {
+  selectedJobId = id;
+  await refreshJobList();
+  const res = await fetch('/api/scans/' + id);
+  const ctx = await res.json();
+  loadPipeline(id, ctx);
+  if (ctx.status === 'awaiting_review') {
+    document.getElementById('tabReview').classList.add('active');
+    showTab('review');
+  } else if (ctx.status === 'done') {
+    showTab('results');
+  } else {
+    showTab('pipeline');
+    startPolling();
+  }
+}
+
+async function deleteJob(e, id) {
+  e.stopPropagation();
+  if (!confirm('Delete this scan?')) return;
+  const res = await fetch('/api/scans/' + id, {method:'DELETE'});
+  if (res.ok) { if (selectedJobId===id) selectedJobId=null; await refreshJobList(); }
+  else toast('Cannot delete (running?)', false);
+}
+
+// =========================================================
+// Pipeline tab
+// =========================================================
+async function loadPipeline(id, ctx) {
+  if (!ctx) {
+    const res = await fetch('/api/scans/' + id);
+    ctx = await res.json();
+  }
+  const el = document.getElementById('pipelineContent');
+  const agents = ['discovery','enrichment','links','verification','review'];
+  const icons = {discovery:'🔍',enrichment:'🔬',links:'🔗',verification:'✅',review:'👤'};
+  const statusIcon = s => ({running:'<div class="spinner"></div>',
+    done:'✅',error:'❌',pending:'⏳',skipped:'⏭',waiting:'⏳'}[s]||'⏳');
+  const stepCards = agents.map(a => {
+    const run = (ctx.agent_runs||{})[a]||{};
+    const cls = run.status==='running'?'running':run.status==='done'?'done':
+                run.status==='error'?'error':'waiting';
+    const dur = run.duration_s!=null?run.duration_s+'s':'';
+    const summ = run.summary ? `<div style="font-size:.7em;color:#555;margin-top:3px;
+      max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" 
+      title="${escH(run.summary)}">${escH(run.summary.slice(0,60))}</div>` : '';
+    const rerunBtn = ['discovery','enrichment','links','verification'].includes(a)
+      ? `<button class="btn btn-secondary btn-sm rerun-btn" 
+           onclick="rerunFrom('${id}','${a}')">Rerun from here</button>` : '';
+    return `<div class="step-card ${cls}">
+      <div class="step-icon">${statusIcon(run.status)} ${icons[a]}</div>
+      <div class="step-name">${a.charAt(0).toUpperCase()+a.slice(1)}</div>
+      <div class="step-status">${escH(run.status||'pending')}</div>
+      <div class="step-dur">${escH(dur)}</div>
+      ${summ}${rerunBtn}
+    </div>`;
+  }).join('');
+
+  const pct = {queued:0,discovery:20,enrichment:40,links:60,
+               verification:80,awaiting_review:100,done:100}[ctx.status]||0;
+
+  // Log filter
+  const logLines = (ctx.log||[]);
+  const agentLog = id => `log-filter-${id}`;
+
+  el.innerHTML = `
+    <div style="padding:4px 0 12px 0">
+      <div style="font-size:.85em;color:#666;margin-bottom:6px">
+        Status: ${statusPill(ctx.status)} 
+        ${ctx.error_msg?'<span style="color:#c62828"> '+escH(ctx.error_msg)+'</span>':''}
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="stepper">${stepCards}</div>
+    <div class="card" style="margin:0">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <b style="font-size:.88em">Pipeline Log</b>
+        <div class="log-filter" id="logFilterRow">
+          <button class="log-filter-btn active" onclick="filterLog('all',this)">All</button>
+          ${agents.map(a=>`<button class="log-filter-btn" 
+            onclick="filterLog('${a}',this)">${a}</button>`).join('')}
+        </div>
+      </div>
+      <div class="log-panel" id="logPanel">
+        ${(ctx.log||[]).slice(-300).map(l=>`<div>${escH(l)}</div>`).join('')}
+      </div>
+    </div>`;
+  scrollLog();
+}
+
+function scrollLog() {
+  const lp = document.getElementById('logPanel');
+  if (lp) lp.scrollTop = lp.scrollHeight;
+}
+
+function filterLog(agent, btn) {
+  document.querySelectorAll('.log-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const lp = document.getElementById('logPanel');
+  if (!lp) return;
+  const lines = Array.from(lp.children);
+  lines.forEach(d => {
+    if (agent === 'all') d.style.display = '';
+    else d.style.display = d.textContent.toLowerCase().includes('['+agent) ? '' : 'none';
+  });
+}
+
+async function rerunFrom(jobId, agent) {
+  const crawl = document.getElementById('inCrawl') ? document.getElementById('inCrawl').value : 0;
+  const res = await fetch(`/api/scans/${jobId}/rerun/${agent}`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({crawl: parseInt(crawl)||0})
+  });
+  const data = await res.json();
+  if (res.ok) { toast('Rerun started from '+agent); startPolling(); }
+  else toast(data.error||'Error', false);
+}
+
+// =========================================================
+// Polling
+// =========================================================
+function startPolling() {
+  if (pollTimer) clearInterval(pollTimer);
+  pollTimer = setInterval(async () => {
+    if (!selectedJobId) return;
+    const res = await fetch('/api/scans/' + selectedJobId);
+    const ctx = await res.json();
+    await refreshJobList();
+    // Update pipeline if visible
+    if (document.getElementById('tab-pipeline').classList.contains('active')) {
+      loadPipeline(selectedJobId, ctx);
+    }
+    // Update pending badge
+    updatePendingBadge(ctx);
+    if (ctx.status === 'awaiting_review') {
+      document.getElementById('tabReview').classList.add('active');
+      clearInterval(pollTimer);
+      if (!document.getElementById('tab-review').classList.contains('active')) {
+        // Auto-switch to review
+      }
+    }
+    if (['done','error','empty','discarded'].includes(ctx.status)) {
+      clearInterval(pollTimer);
+      if (ctx.status === 'done') { showTab('results'); loadResults(selectedJobId, ctx); }
+    }
+  }, 700);
+}
+
+function updatePendingBadge(ctx) {
+  if (!ctx.device_count) return;
+  // We'd need review data for exact count; show badge if awaiting_review
+  const badge = document.getElementById('pendingBadge');
+  if (ctx.status === 'awaiting_review') {
+    badge.style.display = '';
+    // Load review data to get count
+    fetch('/api/scans/'+ctx.job_id+'/review').then(r=>r.json()).then(d=>{
+      badge.textContent = d.summary?.pending || '';
+    }).catch(()=>{});
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+// =========================================================
+// Review tab
+// =========================================================
+async function loadReview(id) {
+  const res = await fetch('/api/scans/' + id + '/review');
+  if (!res.ok) {
+    document.getElementById('reviewContent').innerHTML =
+      '<p class="error-box" style="margin:20px">Review not available.</p>';
+    return;
+  }
+  reviewData = await res.json();
+  renderReview(id, reviewData);
+}
+
+function renderReview(jobId, data) {
+  const devices = data.devices || {};
+  const links   = data.links   || {};
+  const summary = data.summary || {};
+  const issues  = data.issues  || {};
+
+  const el = document.getElementById('reviewContent');
+
+  // Summary chips
+  const chips = `
+    <div class="review-chips">
+      <span class="chip">📋 Pending: ${summary.pending||0}</span>
+      <span class="chip" style="background:#e8f5e9;color:#1b5e20">✅ Approved: ${summary.approved||0}</span>
+      <span class="chip" style="background:#e3f2fd;color:#0d47a1">✏️ Edited: ${summary.edited||0}</span>
+      <span class="chip" style="background:#fce4ec;color:#880e4f">❌ Rejected: ${summary.rejected||0}</span>
+      ${issues.critical?`<span class="chip crit">🔴 Critical: ${issues.critical}</span>`:''}
+      ${issues.warning?`<span class="chip warn">🟡 Warn: ${issues.warning}</span>`:''}
+      ${issues.info?`<span class="chip info">ℹ️ Info: ${issues.info}</span>`:''}
+    </div>`;
+
+  // Bulk actions
+  const bulk = `
+    <div class="bulk-row">
+      <input type="text" id="revReviewer" placeholder="Your name" 
+             style="width:150px" value="${escH(currentReviewer)}">
+      <button class="btn btn-secondary btn-sm" onclick="bulkAction('approve_safe')">Approve safe</button>
+      <button class="btn btn-secondary btn-sm" onclick="bulkAction('approve_all')">Approve all</button>
+      <button class="btn btn-secondary btn-sm" onclick="bulkAction('reject_arp_only')">Reject ARP-only</button>
+      <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:.82em">
+        <input type="checkbox" id="chkRemember"> Remember corrections
+      </label>
+    </div>`;
+
+  // Filter bar
+  const filterBar = `
+    <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap">
+      <button class="log-filter-btn active" onclick="filterDevTable('all',this)">All</button>
+      <button class="log-filter-btn" onclick="filterDevTable('pending',this)">Needs Review</button>
+      <button class="log-filter-btn" onclick="filterDevTable('critical',this)">Critical</button>
+      <button class="log-filter-btn" onclick="filterDevTable('approved',this)">Approved</button>
+      <button class="log-filter-btn" onclick="filterDevTable('rejected',this)">Rejected</button>
+    </div>`;
+
+  // Devices table
+  const devRows = Object.entries(devices).sort().map(([key, d]) => {
+    const conf = d.confidence||0;
+    const confColor = conf>=80?'#43a047':conf>=50?'#ff9800':'#e53935';
+    const issueIcons = (d.issues||[]).map(i => {
+      const ic = i.severity==='critical'?'🔴':i.severity==='warning'?'🟡':'ℹ️';
+      return `<span class="issue-icon" title="${escH(i.msg)}">${ic}</span>`;
+    }).join('');
+    const ai = d.ai_explanation ? `<span title="${escH(d.ai_explanation)}">🤖</span>` : '';
+    const statusCls = d.review_status==='approved'?'approved':
+                      d.review_status==='rejected'?'rejected':'';
+    return `<tr data-status="${escH(d.review_status)}" 
+                data-critical="${(d.issues||[]).some(i=>i.severity==='critical')?'1':'0'}">
+      <td><input type="checkbox" class="dev-chk" data-key="${escH(key)}"></td>
+      <td>
+        <div style="display:flex;align-items:center;gap:4px">
+          <div class="conf-bar" style="width:${conf*0.5}px;background:${confColor}"></div>
+          <span class="conf-label">${conf}</span>
+        </div>
+      </td>
+      <td><b>${escH(d.name||key)}</b></td>
+      <td>${escH(d.ip||'')}</td>
+      <td style="font-size:.78em">${escH(d.mac||'')}</td>
+      <td>${escH(d.vendor||'')}</td>
+      <td>${escH(d.model||'')}</td>
+      <td>${escH(d.role||'')}</td>
+      <td>${escH(d.tier||'')}</td>
+      <td>${escH((d.via||[]).join(','))}</td>
+      <td>${issueIcons}${ai}</td>
+      <td><span class="pill ${d.review_status==='approved'?'pill-green':
+           d.review_status==='rejected'?'pill-red':
+           d.review_status==='edited'?'pill-teal':'pill-grey'}">${escH(d.review_status||'')}</span>
+      </td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-success btn-sm" onclick="devAction('${escH(key)}','approve')">✓</button>
+        <button class="btn btn-secondary btn-sm" onclick="openEdit('${escH(key)}')">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="devAction('${escH(key)}','reject')">✗</button>
+      </td>
+    </tr>`;
+  }).join('');
+
+  // Links table
+  const devMap = devices;
+  const linkRows = Object.entries(links).sort().map(([lk, link]) => {
+    const adev = devMap[link.a]||{};
+    const bdev = devMap[link.b]||{};
+    const bothEnds = (link.seen_from||[]).length === 2 ? '✓' : '½';
+    const issueIcons = (link.issues||[]).map(i => {
+      const ic = i.severity==='critical'?'🔴':i.severity==='warning'?'🟡':'ℹ️';
+      return `<span class="issue-icon" title="${escH(i.msg)}">${ic}</span>`;
+    }).join('');
+    return `<tr>
+      <td>${escH((adev.name||link.a))} <span style="color:#888;font-size:.78em">${escH(link.a_port||'')}</span></td>
+      <td>${escH((bdev.name||link.b))} <span style="color:#888;font-size:.78em">${escH(link.b_port||'')}</span></td>
+      <td><span class="pill pill-${link.source==='manual'?'blue':link.source==='inferred'?'grey':'teal'}">${escH(link.source||'')}</span></td>
+      <td>${bothEnds}</td>
+      <td>${link.confidence||0}</td>
+      <td>${issueIcons}</td>
+      <td><span class="pill ${link.review_status==='approved'?'pill-green':link.review_status==='rejected'?'pill-red':'pill-grey'}">${escH(link.review_status||'')}</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-success btn-sm" onclick="linkAction('${escH(lk)}','approve')">✓</button>
+        <button class="btn btn-danger btn-sm" onclick="linkAction('${escH(lk)}','reject')">✗</button>
+      </td>
+    </tr>`;
+  }).join('');
+
+  // Add manual link form
+  const manualLinkForm = `
+    <div class="link-add-form">
+      <div><label>Device A key</label><input type="text" id="manLinkA" placeholder="IP or nbr:name"></div>
+      <div><label>Device B key</label><input type="text" id="manLinkB" placeholder="IP or nbr:name"></div>
+      <div><label>A port</label><input type="text" id="manLinkAPort" style="width:80px"></div>
+      <div><label>B port</label><input type="text" id="manLinkBPort" style="width:80px"></div>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="addManualLink()" style="margin-top:6px">Add Manual Link</button>`;
+
+  // Finalize panel
+  const finalize = `
+    <div class="card" id="finalizePanel">
+      <h3>Finalize Scan</h3>
+      <div class="row-2">
+        <div>
+          <label>Reviewer name</label>
+          <input type="text" id="finReviewer" placeholder="Your name"
+                 value="${escH(currentReviewer)}">
+        </div>
+        <div style="padding-top:24px">
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer">
+            <input type="checkbox" id="chkApprovePending">
+            Approve remaining pending items
+          </label>
+        </div>
+      </div>
+      <div id="finalizeBlockers" style="margin:8px 0"></div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="btn btn-primary" onclick="finalizeScan()">Finalize</button>
+        <button class="btn btn-danger" onclick="discardScan()">Discard</button>
+      </div>
+    </div>`;
+
+  el.innerHTML = `
+    ${chips}${bulk}
+    <div class="card">
+      <h3>Draft Diagram</h3>
+      <div class="svg-wrap">${data.draft_svg||''}</div>
+    </div>
+    <div class="card">
+      <h3>Devices</h3>
+      ${filterBar}
+      <div class="table-wrap">
+        <table>
+          <tr><th></th><th>Conf</th><th>Name</th><th>IP</th><th>MAC</th>
+              <th>Vendor</th><th>Model</th><th>Role</th><th>Tier</th>
+              <th>Via</th><th>Issues</th><th>Status</th><th>Actions</th></tr>
+          <tbody id="devTableBody">${devRows}</tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Links</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>A (port)</th><th>B (port)</th><th>Source</th><th>Both ends</th>
+              <th>Conf</th><th>Issues</th><th>Status</th><th>Actions</th></tr>
+          <tbody>${linkRows}</tbody>
+        </table>
+      </div>
+      <h3 style="margin-top:14px;font-size:.9em">Add Manual Link</h3>
+      ${manualLinkForm}
+    </div>
+    ${finalize}`;
+}
+
+function filterDevTable(filter, btn) {
+  document.querySelectorAll('.log-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const rows = document.querySelectorAll('#devTableBody tr');
+  rows.forEach(r => {
+    const st = r.dataset.status||'';
+    const cr = r.dataset.critical==='1';
+    let show = true;
+    if (filter==='pending') show = st==='pending';
+    else if (filter==='critical') show = cr;
+    else if (filter==='approved') show = st==='approved';
+    else if (filter==='rejected') show = st==='rejected';
+    r.style.display = show?'':'none';
+  });
+}
+
+function getReviewer() {
+  currentReviewer = document.getElementById('revReviewer')?.value.trim() ||
+                    document.getElementById('finReviewer')?.value.trim() ||
+                    'reviewer';
+  return currentReviewer;
+}
+
+async function devAction(key, action) {
+  const reviewer = getReviewer();
+  const res = await fetch(`/api/scans/${selectedJobId}/devices/${encodeURIComponent(key)}`, {
+    method:'PUT', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({action, reviewer})
+  });
+  const d = await res.json();
+  if (res.ok) { toast(action+' ok'); loadReview(selectedJobId); }
+  else toast(d.error||'Error', false);
+}
+
+async function linkAction(key, action) {
+  const reviewer = getReviewer();
+  const res = await fetch(`/api/scans/${selectedJobId}/links/${encodeURIComponent(key)}`, {
+    method:'PUT', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({action, reviewer})
+  });
+  const d = await res.json();
+  if (res.ok) { toast(action+' link ok'); loadReview(selectedJobId); }
+  else toast(d.error||'Error', false);
+}
+
+async function bulkAction(action) {
+  const reviewer = getReviewer();
+  const res = await fetch(`/api/scans/${selectedJobId}/bulk`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({action, reviewer})
+  });
+  const d = await res.json();
+  if (res.ok) { toast('Bulk '+action+' done'); loadReview(selectedJobId); }
+  else toast(d.error||'Error', false);
+}
+
+async function addManualLink() {
+  const a = document.getElementById('manLinkA').value.trim();
+  const b = document.getElementById('manLinkB').value.trim();
+  if (!a||!b) { toast('Both device keys required', false); return; }
+  const reviewer = getReviewer();
+  const res = await fetch(`/api/scans/${selectedJobId}/links`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({a, b,
+      a_port: document.getElementById('manLinkAPort').value.trim(),
+      b_port: document.getElementById('manLinkBPort').value.trim(),
+      reviewer})
+  });
+  const d = await res.json();
+  if (res.ok) { toast('Manual link added'); loadReview(selectedJobId); }
+  else toast(d.error||'Error', false);
+}
+
+// Edit modal
+function openEdit(key) {
+  const d = reviewData?.devices?.[key];
+  if (!d) return;
+  document.getElementById('editKey').value = key;
+  document.getElementById('editName').value = d.name||'';
+  document.getElementById('editVendor').value = d.vendor||'';
+  document.getElementById('editModel').value = d.model||'';
+  document.getElementById('editRole').value = d.role||'Host';
+  document.getElementById('editTier').value = d.tier||'Endpoint';
+  document.getElementById('editNotes').value = d.notes||'';
+  document.getElementById('editIsGateway').checked = !!d.is_gateway;
+  document.getElementById('editEvidence').textContent =
+    (d.evidence||[]).join('\n') || '(no evidence)';
+  document.getElementById('editModal').classList.add('open');
+}
+function closeEditModal() {
+  document.getElementById('editModal').classList.remove('open');
+}
+async function saveDeviceEdit() {
+  const key = document.getElementById('editKey').value;
+  const reviewer = getReviewer();
+  const body = {
+    action:'edit', reviewer,
+    name:      document.getElementById('editName').value,
+    vendor:    document.getElementById('editVendor').value,
+    model:     document.getElementById('editModel').value,
+    role:      document.getElementById('editRole').value,
+    tier:      document.getElementById('editTier').value,
+    notes:     document.getElementById('editNotes').value,
+    is_gateway:document.getElementById('editIsGateway').checked,
+  };
+  const res = await fetch(`/api/scans/${selectedJobId}/devices/${encodeURIComponent(key)}`, {
+    method:'PUT', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(body)
+  });
+  const d = await res.json();
+  if (res.ok) { toast('Device updated'); closeEditModal(); loadReview(selectedJobId); }
+  else toast(d.error||'Error', false);
+}
+
+async function finalizeScan() {
+  const reviewer = document.getElementById('finReviewer').value.trim() ||
+                   document.getElementById('revReviewer')?.value.trim() || 'reviewer';
+  const approvePending = document.getElementById('chkApprovePending').checked;
+  const remember = document.getElementById('chkRemember')?.checked || false;
+  const res = await fetch(`/api/scans/${selectedJobId}/finalize`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({reviewer, approve_pending:approvePending, remember})
+  });
+  const d = await res.json();
+  if (d.ok) {
+    toast('Scan finalized – report v'+d.version);
+    await refreshJobList();
+    showTab('results');
+    loadResults(selectedJobId);
+  } else {
+    const bl = document.getElementById('finalizeBlockers');
+    bl.innerHTML = '<div class="error-box">'+(d.blocking||[d.error]).map(escH).join('<br>')+'</div>';
+  }
+}
+
+async function discardScan() {
+  if (!confirm('Discard this scan?')) return;
+  const res = await fetch(`/api/scans/${selectedJobId}/discard`, {method:'POST'});
+  if (res.ok) { toast('Scan discarded'); await refreshJobList(); }
+  else toast('Error', false);
+}
+
+// =========================================================
+// Results tab
+// =========================================================
+async function loadResults(id, ctx) {
+  if (!ctx) {
+    const res = await fetch('/api/scans/'+id);
+    ctx = await res.json();
+  }
+  if (ctx.status !== 'done') {
+    document.getElementById('resultsContent').innerHTML =
+      '<p style="color:#888;margin:20px">Scan not yet finalized.</p>';
+    return;
+  }
+  const v = ctx.report_version || 1;
+  const suffix = v > 1 ? '_v'+v : '';
+  const baseUrl = `/scans/${id}/`;
+
+  // Build version selector
+  let versionOpts = '';
+  for (let i = 1; i <= v; i++) {
+    const s2 = i > 1 ? '_v'+i : '';
+    versionOpts += `<option value="${i}" ${i===v?'selected':''}>v${i}</option>`;
+  }
+
+  document.getElementById('resultsContent').innerHTML = `
+    <div class="kpi-row" id="resultsKpis"></div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3>Final Report</h3>
+        <div style="display:flex;gap:8px;align-items:center">
+          <label style="font-size:.82em">Version:
+            <select id="versionSel" onchange="switchVersion()" style="width:60px">${versionOpts}</select>
+          </label>
+          <a href="${baseUrl}netarch_report${suffix}.html" target="_blank" class="btn btn-secondary btn-sm">Open in new tab</a>
+          <button class="btn btn-secondary btn-sm" onclick="reopenScan()">Reopen for review</button>
+        </div>
+      </div>
+      <iframe id="reportFrame" class="report-frame" 
+              src="${baseUrl}netarch_report${suffix}.html"></iframe>
+    </div>
+    <div class="card">
+      <h3>Downloads</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="${baseUrl}netarch_report${suffix}.html?dl=1" class="btn btn-secondary btn-sm">HTML Report</a>
+        <a href="${baseUrl}netarch_inventory${suffix}.csv?dl=1" class="btn btn-secondary btn-sm">Inventory CSV</a>
+        <a href="${baseUrl}netarch_links${suffix}.csv?dl=1" class="btn btn-secondary btn-sm">Links CSV</a>
+        <a href="${baseUrl}netarch_topology${suffix}.mmd?dl=1" class="btn btn-secondary btn-sm">Mermaid</a>
+        <a href="${baseUrl}netarch_scan${suffix}.json?dl=1" class="btn btn-secondary btn-sm">JSON</a>
+        <a href="${baseUrl}netarch_audit${suffix}.csv?dl=1" class="btn btn-secondary btn-sm">Audit CSV</a>
+        <a href="${baseUrl}scan.log?dl=1" class="btn btn-secondary btn-sm">Log</a>
+      </div>
+    </div>`;
+
+  // Load review data for KPIs
+  try {
+    const rr = await fetch('/api/scans/'+id+'/review');
+    if (rr.ok) {
+      const rd = await rr.json();
+      const devs = rd.devices||{};
+      const lnks = rd.links||{};
+      const n = Object.keys(devs).length;
+      const ml = Object.values(lnks).filter(l=>['LLDP','CDP'].includes(l.source)).length;
+      const il = Object.values(lnks).filter(l=>l.source==='inferred').length;
+      const ac = n ? Math.round(Object.values(devs).reduce((s,d)=>s+(d.confidence||0),0)/n) : 0;
+      document.getElementById('resultsKpis').innerHTML = `
+        <div class="kpi-card"><div class="val">${n}</div><div class="lbl">Devices</div></div>
+        <div class="kpi-card"><div class="val">${ml}</div><div class="lbl">Measured Links</div></div>
+        <div class="kpi-card"><div class="val">${il}</div><div class="lbl">Inferred Links</div></div>
+        <div class="kpi-card"><div class="val">${ac}%</div><div class="lbl">Avg Confidence</div></div>`;
+    }
+  } catch(e) {}
+}
+
+function switchVersion() {
+  const v = parseInt(document.getElementById('versionSel').value);
+  const suffix = v > 1 ? '_v'+v : '';
+  document.getElementById('reportFrame').src =
+    `/scans/${selectedJobId}/netarch_report${suffix}.html`;
+}
+
+async function reopenScan() {
+  const res = await fetch(`/api/scans/${selectedJobId}/reopen`, {method:'POST'});
+  const d = await res.json();
+  if (res.ok) { toast('Scan reopened for review'); showTab('review'); loadReview(selectedJobId); }
+  else toast(d.error||'Error', false);
+}
+
+// =========================================================
+// Escape HTML
+// =========================================================
+function escH(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// =========================================================
+// Init
+// =========================================================
+(async function init() {
+  await refreshJobList();
+  // Auto-select most recent job
+  const res = await fetch('/api/scans');
+  const jobs = await res.json();
+  if (jobs.length) {
+    selectedJobId = jobs[0].job_id;
+    await refreshJobList();
+    const ctx = jobs[0];
+    if (ctx.status === 'awaiting_review') {
+      showTab('review');
+      loadReview(ctx.job_id);
+    } else if (ctx.status === 'done') {
+      showTab('results');
+      loadResults(ctx.job_id);
+    } else if (['discovery','enrichment','links','verification'].includes(ctx.status)) {
+      showTab('pipeline');
+      loadPipeline(ctx.job_id);
+      startPolling();
+    }
+  }
+})();
+</script>
+</body>
+</html>

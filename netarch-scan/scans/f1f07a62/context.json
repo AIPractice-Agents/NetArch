@@ -1,0 +1,5897 @@
+{
+  "job_id": "f1f07a62",
+  "status": "awaiting_review",
+  "error_msg": "",
+  "created": "2026-11-18T03:39:55Z",
+  "updated": "2026-11-18T03:55:09Z",
+  "report_version": 0,
+  "settings": {
+    "target": "172.19.0.0/24",
+    "hosts": [
+      "172.19.0.1",
+      "172.19.0.2",
+      "172.19.0.3",
+      "172.19.0.4",
+      "172.19.0.5",
+      "172.19.0.6",
+      "172.19.0.7",
+      "172.19.0.8",
+      "172.19.0.9",
+      "172.19.0.10",
+      "172.19.0.11",
+      "172.19.0.12",
+      "172.19.0.13",
+      "172.19.0.14",
+      "172.19.0.15",
+      "172.19.0.16",
+      "172.19.0.17",
+      "172.19.0.18",
+      "172.19.0.19",
+      "172.19.0.20",
+      "172.19.0.21",
+      "172.19.0.22",
+      "172.19.0.23",
+      "172.19.0.24",
+      "172.19.0.25",
+      "172.19.0.26",
+      "172.19.0.27",
+      "172.19.0.28",
+      "172.19.0.29",
+      "172.19.0.30",
+      "172.19.0.31",
+      "172.19.0.32",
+      "172.19.0.33",
+      "172.19.0.34",
+      "172.19.0.35",
+      "172.19.0.36",
+      "172.19.0.37",
+      "172.19.0.38",
+      "172.19.0.39",
+      "172.19.0.40",
+      "172.19.0.41",
+      "172.19.0.42",
+      "172.19.0.43",
+      "172.19.0.44",
+      "172.19.0.45",
+      "172.19.0.46",
+      "172.19.0.47",
+      "172.19.0.48",
+      "172.19.0.49",
+      "172.19.0.50",
+      "172.19.0.51",
+      "172.19.0.52",
+      "172.19.0.53",
+      "172.19.0.54",
+      "172.19.0.55",
+      "172.19.0.56",
+      "172.19.0.57",
+      "172.19.0.58",
+      "172.19.0.59",
+      "172.19.0.60",
+      "172.19.0.61",
+      "172.19.0.62",
+      "172.19.0.63",
+      "172.19.0.64",
+      "172.19.0.65",
+      "172.19.0.66",
+      "172.19.0.67",
+      "172.19.0.68",
+      "172.19.0.69",
+      "172.19.0.70",
+      "172.19.0.71",
+      "172.19.0.72",
+      "172.19.0.73",
+      "172.19.0.74",
+      "172.19.0.75",
+      "172.19.0.76",
+      "172.19.0.77",
+      "172.19.0.78",
+      "172.19.0.79",
+      "172.19.0.80",
+      "172.19.0.81",
+      "172.19.0.82",
+      "172.19.0.83",
+      "172.19.0.84",
+      "172.19.0.85",
+      "172.19.0.86",
+      "172.19.0.87",
+      "172.19.0.88",
+      "172.19.0.89",
+      "172.19.0.90",
+      "172.19.0.91",
+      "172.19.0.92",
+      "172.19.0.93",
+      "172.19.0.94",
+      "172.19.0.95",
+      "172.19.0.96",
+      "172.19.0.97",
+      "172.19.0.98",
+      "172.19.0.99",
+      "172.19.0.100",
+      "172.19.0.101",
+      "172.19.0.102",
+      "172.19.0.103",
+      "172.19.0.104",
+      "172.19.0.105",
+      "172.19.0.106",
+      "172.19.0.107",
+      "172.19.0.108",
+      "172.19.0.109",
+      "172.19.0.110",
+      "172.19.0.111",
+      "172.19.0.112",
+      "172.19.0.113",
+      "172.19.0.114",
+      "172.19.0.115",
+      "172.19.0.116",
+      "172.19.0.117",
+      "172.19.0.118",
+      "172.19.0.119",
+      "172.19.0.120",
+      "172.19.0.121",
+      "172.19.0.122",
+      "172.19.0.123",
+      "172.19.0.124",
+      "172.19.0.125",
+      "172.19.0.126",
+      "172.19.0.127",
+      "172.19.0.128",
+      "172.19.0.129",
+      "172.19.0.130",
+      "172.19.0.131",
+      "172.19.0.132",
+      "172.19.0.133",
+      "172.19.0.134",
+      "172.19.0.135",
+      "172.19.0.136",
+      "172.19.0.137",
+      "172.19.0.138",
+      "172.19.0.139",
+      "172.19.0.140",
+      "172.19.0.141",
+      "172.19.0.142",
+      "172.19.0.143",
+      "172.19.0.144",
+      "172.19.0.145",
+      "172.19.0.146",
+      "172.19.0.147",
+      "172.19.0.148",
+      "172.19.0.149",
+      "172.19.0.150",
+      "172.19.0.151",
+      "172.19.0.152",
+      "172.19.0.153",
+      "172.19.0.154",
+      "172.19.0.155",
+      "172.19.0.156",
+      "172.19.0.157",
+      "172.19.0.158",
+      "172.19.0.159",
+      "172.19.0.160",
+      "172.19.0.161",
+      "172.19.0.162",
+      "172.19.0.163",
+      "172.19.0.164",
+      "172.19.0.165",
+      "172.19.0.166",
+      "172.19.0.167",
+      "172.19.0.168",
+      "172.19.0.169",
+      "172.19.0.170",
+      "172.19.0.171",
+      "172.19.0.172",
+      "172.19.0.173",
+      "172.19.0.174",
+      "172.19.0.175",
+      "172.19.0.176",
+      "172.19.0.177",
+      "172.19.0.178",
+      "172.19.0.179",
+      "172.19.0.180",
+      "172.19.0.181",
+      "172.19.0.182",
+      "172.19.0.183",
+      "172.19.0.184",
+      "172.19.0.185",
+      "172.19.0.186",
+      "172.19.0.187",
+      "172.19.0.188",
+      "172.19.0.189",
+      "172.19.0.190",
+      "172.19.0.191",
+      "172.19.0.192",
+      "172.19.0.193",
+      "172.19.0.194",
+      "172.19.0.195",
+      "172.19.0.196",
+      "172.19.0.197",
+      "172.19.0.198",
+      "172.19.0.199",
+      "172.19.0.200",
+      "172.19.0.201",
+      "172.19.0.202",
+      "172.19.0.203",
+      "172.19.0.204",
+      "172.19.0.205",
+      "172.19.0.206",
+      "172.19.0.207",
+      "172.19.0.208",
+      "172.19.0.209",
+      "172.19.0.210",
+      "172.19.0.211",
+      "172.19.0.212",
+      "172.19.0.213",
+      "172.19.0.214",
+      "172.19.0.215",
+      "172.19.0.216",
+      "172.19.0.217",
+      "172.19.0.218",
+      "172.19.0.219",
+      "172.19.0.220",
+      "172.19.0.221",
+      "172.19.0.222",
+      "172.19.0.223",
+      "172.19.0.224",
+      "172.19.0.225",
+      "172.19.0.226",
+      "172.19.0.227",
+      "172.19.0.228",
+      "172.19.0.229",
+      "172.19.0.230",
+      "172.19.0.231",
+      "172.19.0.232",
+      "172.19.0.233",
+      "172.19.0.234",
+      "172.19.0.235",
+      "172.19.0.236",
+      "172.19.0.237",
+      "172.19.0.238",
+      "172.19.0.239",
+      "172.19.0.240",
+      "172.19.0.241",
+      "172.19.0.242",
+      "172.19.0.243",
+      "172.19.0.244",
+      "172.19.0.245",
+      "172.19.0.246",
+      "172.19.0.247",
+      "172.19.0.248",
+      "172.19.0.249",
+      "172.19.0.250",
+      "172.19.0.251",
+      "172.19.0.252",
+      "172.19.0.253",
+      "172.19.0.254",
+      "172.19.0.255"
+    ],
+    "live": true,
+    "offset": 0,
+    "community": "public",
+    "crawl": 0,
+    "scope": [],
+    "max_hosts": 4096,
+    "gateway": "auto",
+    "approval": "I have approval to scan",
+    "llm": false
+  },
+  "devices": {
+    "172.19.0.6": {
+      "ip": "172.19.0.6",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        22,
+        53,
+        80,
+        443
+      ],
+      "banners": {
+        "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+      },
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "web-6",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        22,
+        53,
+        80,
+        443
+      ],
+      "http": {
+        "title": "Welcome to nginx!",
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "hints": [],
+        "url": "http://172.19.0.6:80/",
+        "error": ""
+      },
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Web Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 20,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Web Server from open port(s) [80, 443]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.7": {
+      "ip": "172.19.0.7",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        22,
+        3306
+      ],
+      "banners": {
+        "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.19",
+        "3306": "[\u0000\u0000\u0000\n8.0.46-0ubuntu0.24.04.4\u0000\u000b\u0000\u0000\u0000\fuhyuQV<\u0000\ufffd\ufffd\ufffd\u0002\u0000\ufffd\ufffd\u0015\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001aGZU*S\u001f\u0004i\u001dY\u0001\u0000caching_sha2_password\u0000"
+      },
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "db-7",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        22,
+        3306
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Database Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 5,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Database Server from open port(s) [3306]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.4": {
+      "ip": "172.19.0.4",
+      "mac": "",
+      "open_ports": [
+        445,
+        3389
+      ],
+      "banners": {},
+      "via": [
+        "Ports"
+      ],
+      "snmp": {},
+      "is_local": true,
+      "name": "Demo-Client (this PC)",
+      "mac_vendor": "",
+      "ports": [
+        445,
+        3389
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Workstation",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 10,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        }
+      ],
+      "evidence": [
+        "role=Workstation from open port(s) [3389, 445]"
+      ],
+      "review_status": "pending",
+      "human_edits": {},
+      "rdns": "Demo-Client.reddog.microsoft.com"
+    },
+    "172.19.0.9": {
+      "ip": "172.19.0.9",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        22,
+        80
+      ],
+      "banners": {
+        "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+      },
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "web-9",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        22,
+        80
+      ],
+      "http": {
+        "title": "Streamlit",
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "hints": [],
+        "url": "http://172.19.0.9:80/",
+        "error": ""
+      },
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Web Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 20,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Web Server from open port(s) [80]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1": {
+      "ip": "172.19.0.1",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [],
+      "banners": {},
+      "via": [
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "is_gateway": true,
+      "lan": "172.19.0.0/24",
+      "name": "router-1",
+      "mac_vendor": "Private MAC",
+      "ports": [],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Router",
+      "tier": "Gateway",
+      "confidence": 20,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Host (default fallback)",
+        "role=Router (is_gateway override)",
+        "tier=Gateway (is_gateway override)"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.27": {
+      "ip": "172.19.0.27",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        80,
+        443
+      ],
+      "banners": {},
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "web-27",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        80,
+        443
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Web Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 5,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Web Server from open port(s) [80, 443]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.28": {
+      "ip": "172.19.0.28",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        80,
+        443
+      ],
+      "banners": {},
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "web-28",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        80,
+        443
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Web Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 5,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Web Server from open port(s) [80, 443]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.29": {
+      "ip": "172.19.0.29",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        80,
+        443
+      ],
+      "banners": {},
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "web-29",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        80,
+        443
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Web Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 5,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Web Server from open port(s) [80, 443]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.45": {
+      "ip": "172.19.0.45",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        80,
+        443
+      ],
+      "banners": {},
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "web-45",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        80,
+        443
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Web Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 5,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Web Server from open port(s) [80, 443]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.37": {
+      "ip": "172.19.0.37",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        443,
+        1433
+      ],
+      "banners": {},
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "db-37",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        443,
+        1433
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Database Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 5,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Database Server from open port(s) [1433]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.46": {
+      "ip": "172.19.0.46",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        80,
+        443
+      ],
+      "banners": {},
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "web-46",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        80,
+        443
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Web Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 5,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Web Server from open port(s) [80, 443]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.47": {
+      "ip": "172.19.0.47",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [
+        80,
+        443
+      ],
+      "banners": {},
+      "via": [
+        "Ports",
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "web-47",
+      "mac_vendor": "Private MAC",
+      "ports": [
+        80,
+        443
+      ],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Web Server",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 5,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Weak classification \u2013 decided by port fallback only"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Web Server from open port(s) [80, 443]"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.44": {
+      "ip": "172.19.0.44",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [],
+      "banners": {},
+      "via": [
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "host-44",
+      "mac_vendor": "Private MAC",
+      "ports": [],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Host",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 20,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Name unknown (default name assigned)"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Host (default fallback)"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.33": {
+      "ip": "172.19.0.33",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [],
+      "banners": {},
+      "via": [
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "host-33",
+      "mac_vendor": "Private MAC",
+      "ports": [],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Host",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 20,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Name unknown (default name assigned)"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Host (default fallback)"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.38": {
+      "ip": "172.19.0.38",
+      "mac": "12:34:56:78:9a:bc",
+      "open_ports": [],
+      "banners": {},
+      "via": [
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "host-38",
+      "mac_vendor": "Private MAC",
+      "ports": [],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Host",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 20,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Name unknown (default name assigned)"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        },
+        {
+          "severity": "warning",
+          "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+        }
+      ],
+      "evidence": [
+        "role=Host (default fallback)"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.255": {
+      "ip": "172.19.0.255",
+      "mac": "ff:ff:ff:ff:ff:ff",
+      "open_ports": [],
+      "banners": {},
+      "via": [
+        "ARP"
+      ],
+      "snmp": {},
+      "is_local": false,
+      "name": "host-255",
+      "mac_vendor": "Private MAC",
+      "ports": [],
+      "http": {},
+      "lldp": {},
+      "vendor": "-",
+      "model": "-",
+      "role": "Host",
+      "tier": "Endpoint",
+      "is_gateway": false,
+      "lan": "",
+      "confidence": 20,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "Name unknown (default name assigned)"
+        },
+        {
+          "severity": "info",
+          "msg": "Model unknown"
+        }
+      ],
+      "evidence": [
+        "role=Host (default fallback)"
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    }
+  },
+  "links": {
+    "172.19.0.1|172.19.0.47": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.47",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.27": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.27",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.44": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.44",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.28": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.28",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.45": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.45",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.255": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.255",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.38": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.38",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.46": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.46",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.4": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.4",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.29": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.29",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.37": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.37",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.7": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.7",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.33": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.33",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.9": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.9",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    },
+    "172.19.0.1|172.19.0.6": {
+      "a": "172.19.0.1",
+      "b": "172.19.0.6",
+      "a_port": "",
+      "b_port": "",
+      "source": "inferred",
+      "seen_from": [],
+      "confidence": 40,
+      "issues": [
+        {
+          "severity": "info",
+          "msg": "assumed from gateway, not measured"
+        }
+      ],
+      "review_status": "pending",
+      "human_edits": {}
+    }
+  },
+  "agent_runs": {
+    "discovery": {
+      "status": "done",
+      "started": "2026-11-18T03:39:55Z",
+      "finished": "2026-11-18T03:40:15Z",
+      "duration_s": 20.0,
+      "summary": "Probed 255 hosts in 19.5s; found 16 live. Methods: {'Ports': 11, 'ARP': 15}. Gateway: 172.19.0.1.",
+      "counts": {
+        "probed": 255,
+        "live": 16,
+        "by_method": {
+          "Ports": 11,
+          "ARP": 15
+        },
+        "gateway": "172.19.0.1"
+      },
+      "log": [
+        "[Discovery] Parsed 254 target(s) from: '172.19.0.0/24'",
+        "[Discovery]   + 172.19.0.255 via ARP",
+        "[Discovery]   + 172.19.0.6 via Ports+ARP",
+        "[Discovery]   + 172.19.0.7 via Ports+ARP",
+        "[Discovery]   + 172.19.0.4 via Ports",
+        "[Discovery]   + 172.19.0.9 via Ports+ARP",
+        "[Discovery]   + 172.19.0.1 via ARP",
+        "[Discovery]   + 172.19.0.27 via Ports+ARP",
+        "[Discovery]   + 172.19.0.28 via Ports+ARP",
+        "[Discovery]   + 172.19.0.29 via Ports+ARP",
+        "[Discovery]   + 172.19.0.45 via Ports+ARP",
+        "[Discovery]   + 172.19.0.37 via Ports+ARP",
+        "[Discovery]   + 172.19.0.46 via Ports+ARP",
+        "[Discovery]   + 172.19.0.47 via Ports+ARP",
+        "[Discovery]   + 172.19.0.44 via ARP",
+        "[Discovery]   + 172.19.0.33 via ARP",
+        "[Discovery]   + 172.19.0.38 via ARP",
+        "[Discovery]   + 172.19.0.255 via ARP",
+        "[Discovery]   Gateway detected: 172.19.0.1",
+        "[Discovery] Probed 255 hosts in 19.5s; found 16 live. Methods: {'Ports': 11, 'ARP': 15}. Gateway: 172.19.0.1."
+      ]
+    },
+    "enrichment": {
+      "status": "done",
+      "started": "2026-11-18T03:40:15Z",
+      "finished": "2026-11-18T03:42:54Z",
+      "duration_s": 159.0,
+      "summary": "Enriched 16 devices in 159.3s; SNMP 0, HTTP 2, vendors: [], overrides: 0.",
+      "counts": {
+        "enriched": 16,
+        "snmp": 0,
+        "http": 2,
+        "vendors": 0,
+        "overrides": 0
+      },
+      "log": [
+        "[Enrichment] Loaded 0 override(s) from overrides.json",
+        "[Enrichment]   enriched 172.19.0.6 -> - - [Web Server] conf=20",
+        "[Enrichment]   enriched 172.19.0.7 -> - - [Database Server] conf=5",
+        "[Enrichment]   enriched 172.19.0.4 -> - - [Workstation] conf=10",
+        "[Enrichment]   enriched 172.19.0.9 -> - - [Web Server] conf=20",
+        "[Enrichment]   enriched 172.19.0.1 -> - - [Router] conf=20",
+        "[Enrichment]   enriched 172.19.0.27 -> - - [Web Server] conf=5",
+        "[Enrichment]   enriched 172.19.0.28 -> - - [Web Server] conf=5",
+        "[Enrichment]   enriched 172.19.0.29 -> - - [Web Server] conf=5",
+        "[Enrichment]   enriched 172.19.0.45 -> - - [Web Server] conf=5",
+        "[Enrichment]   enriched 172.19.0.37 -> - - [Database Server] conf=5",
+        "[Enrichment]   enriched 172.19.0.46 -> - - [Web Server] conf=5",
+        "[Enrichment]   enriched 172.19.0.47 -> - - [Web Server] conf=5",
+        "[Enrichment]   enriched 172.19.0.44 -> - - [Host] conf=20",
+        "[Enrichment]   enriched 172.19.0.33 -> - - [Host] conf=20",
+        "[Enrichment]   enriched 172.19.0.38 -> - - [Host] conf=20",
+        "[Enrichment]   enriched 172.19.0.255 -> - - [Host] conf=20",
+        "[Enrichment] Enriched 16 devices in 159.3s; SNMP 0, HTTP 2, vendors: [], overrides: 0."
+      ]
+    },
+    "links": {
+      "status": "done",
+      "started": "2026-11-18T03:42:54Z",
+      "finished": "2026-11-18T03:45:19Z",
+      "duration_s": 145.0,
+      "summary": "Processed 16 devices in 144.6s; LLDP links: 0, CDP: 0, inferred: 15, crawl added: 0.",
+      "counts": {
+        "devices_with_tables": 0,
+        "lldp_links": 0,
+        "cdp_links": 0,
+        "inferred_links": 15,
+        "crawl_added": 0
+      },
+      "log": [
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.47",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.27",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.44",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.28",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.45",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.255",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.38",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.46",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.4",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.29",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.37",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.7",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.33",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.9",
+        "[Links]   inferred link: 172.19.0.1 <-> 172.19.0.6",
+        "[Links] Processed 16 devices in 144.6s; LLDP links: 0, CDP: 0, inferred: 15, crawl added: 0."
+      ]
+    },
+    "verification": {
+      "status": "done",
+      "started": "2026-11-18T03:45:19Z",
+      "finished": "2026-11-18T03:55:09Z",
+      "duration_s": 590.0,
+      "summary": "Verified 16 devices in 590.3s. Avg confidence: 12. Issues: {'critical': 0, 'warning': 14, 'info': 31}. Needs review: 16, auto-approve: 0.",
+      "counts": {
+        "verified": 16,
+        "avg_confidence": 12,
+        "issues": {
+          "critical": 0,
+          "warning": 14,
+          "info": 31
+        },
+        "needs_review": 16,
+        "auto_approve": 0
+      },
+      "log": [
+        "[Verification]   Re-probing 172.19.0.6 (conf=20)",
+        "[Verification]   Re-probing 172.19.0.7 (conf=5)",
+        "[Verification]   Re-probing 172.19.0.4 (conf=10)",
+        "[Verification]   Re-probing 172.19.0.9 (conf=20)",
+        "[Verification]   Re-probing 172.19.0.1 (conf=20)",
+        "[Verification]   Re-probing 172.19.0.27 (conf=5)",
+        "[Verification]   Re-probing 172.19.0.28 (conf=5)",
+        "[Verification]   Re-probing 172.19.0.29 (conf=5)",
+        "[Verification]   Re-probing 172.19.0.45 (conf=5)",
+        "[Verification]   Re-probing 172.19.0.37 (conf=5)",
+        "[Verification]   Re-probing 172.19.0.46 (conf=5)",
+        "[Verification]   Re-probing 172.19.0.47 (conf=5)",
+        "[Verification]   Re-probing 172.19.0.44 (conf=20)",
+        "[Verification]   Re-probing 172.19.0.33 (conf=20)",
+        "[Verification]   Re-probing 172.19.0.38 (conf=20)",
+        "[Verification]   Re-probing 172.19.0.255 (conf=20)",
+        "[Verification] Verified 16 devices in 590.3s. Avg confidence: 12. Issues: {'critical': 0, 'warning': 14, 'info': 31}. Needs review: 16, auto-approve: 0."
+      ]
+    },
+    "review": {
+      "status": "done",
+      "started": "2026-11-18T03:55:09Z",
+      "finished": "2026-11-18T03:55:09Z",
+      "duration_s": 0.0,
+      "summary": "Awaiting review: 16 devices pending (0 auto-approve candidates), 15 links pending.",
+      "counts": {
+        "pending_devices": 16,
+        "auto_approve": 0,
+        "pending_links": 15
+      },
+      "log": [
+        "[Human Review] Awaiting review: 16 devices pending (0 auto-approve candidates), 15 links pending."
+      ]
+    }
+  },
+  "audit": [
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.6",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.6",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-6",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "http": {
+          "title": "Welcome to nginx!",
+          "server": "nginx/1.24.0 (Ubuntu)",
+          "hints": [],
+          "url": "http://172.19.0.6:80/",
+          "error": ""
+        },
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.7",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.7",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          3306
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.19",
+          "3306": "[\u0000\u0000\u0000\n8.0.46-0ubuntu0.24.04.4\u0000\u000b\u0000\u0000\u0000\fuhyuQV<\u0000\ufffd\ufffd\ufffd\u0002\u0000\ufffd\ufffd\u0015\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001aGZU*S\u001f\u0004i\u001dY\u0001\u0000caching_sha2_password\u0000"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "db-7",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          3306
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Database Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Database Server from open port(s) [3306]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.4",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.4",
+        "mac": "",
+        "open_ports": [
+          445,
+          3389
+        ],
+        "banners": {},
+        "via": [
+          "Ports"
+        ],
+        "snmp": {},
+        "is_local": true,
+        "name": "Demo-Client (this PC)",
+        "mac_vendor": "",
+        "ports": [
+          445,
+          3389
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Workstation",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 10,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          }
+        ],
+        "evidence": [
+          "role=Workstation from open port(s) [3389, 445]"
+        ],
+        "review_status": "pending",
+        "human_edits": {},
+        "rdns": "Demo-Client.reddog.microsoft.com"
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.9",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.9",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          80
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-9",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          80
+        ],
+        "http": {
+          "title": "Streamlit",
+          "server": "nginx/1.24.0 (Ubuntu)",
+          "hints": [],
+          "url": "http://172.19.0.9:80/",
+          "error": ""
+        },
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.1",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.1",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "is_gateway": true,
+        "lan": "172.19.0.0/24",
+        "name": "router-1",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Router",
+        "tier": "Gateway",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)",
+          "role=Router (is_gateway override)",
+          "tier=Gateway (is_gateway override)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.27",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.27",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-27",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.28",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.28",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-28",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.29",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.29",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-29",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.45",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.45",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-45",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.37",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.37",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          443,
+          1433
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "db-37",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          443,
+          1433
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Database Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Database Server from open port(s) [1433]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.46",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.46",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-46",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.47",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.47",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-47",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.44",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.44",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-44",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Name unknown (default name assigned)"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.33",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.33",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-33",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Name unknown (default name assigned)"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.38",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.38",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-38",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Name unknown (default name assigned)"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:15Z",
+      "actor": "agent:discovery",
+      "action": "add_device",
+      "target": "172.19.0.255",
+      "before": null,
+      "after": {
+        "ip": "172.19.0.255",
+        "mac": "ff:ff:ff:ff:ff:ff",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-255",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Name unknown (default name assigned)"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:20Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.6",
+      "before": {
+        "ip": "172.19.0.6",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.6",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-6",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "http": {
+          "title": "Welcome to nginx!",
+          "server": "nginx/1.24.0 (Ubuntu)",
+          "hints": [],
+          "url": "http://172.19.0.6:80/",
+          "error": ""
+        },
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:25Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.7",
+      "before": {
+        "ip": "172.19.0.7",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          3306
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.19",
+          "3306": "[\u0000\u0000\u0000\n8.0.46-0ubuntu0.24.04.4\u0000\u000b\u0000\u0000\u0000\fuhyuQV<\u0000\ufffd\ufffd\ufffd\u0002\u0000\ufffd\ufffd\u0015\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001aGZU*S\u001f\u0004i\u001dY\u0001\u0000caching_sha2_password\u0000"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          22,
+          3306
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.7",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          3306
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.19",
+          "3306": "[\u0000\u0000\u0000\n8.0.46-0ubuntu0.24.04.4\u0000\u000b\u0000\u0000\u0000\fuhyuQV<\u0000\ufffd\ufffd\ufffd\u0002\u0000\ufffd\ufffd\u0015\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001aGZU*S\u001f\u0004i\u001dY\u0001\u0000caching_sha2_password\u0000"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "db-7",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          3306
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Database Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Database Server from open port(s) [3306]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:25Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.4",
+      "before": {
+        "ip": "172.19.0.4",
+        "mac": "",
+        "open_ports": [
+          445,
+          3389
+        ],
+        "banners": {},
+        "via": [
+          "Ports"
+        ],
+        "snmp": {},
+        "is_local": true,
+        "name": "Demo-Client (this PC)",
+        "mac_vendor": "",
+        "ports": [
+          445,
+          3389
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.4",
+        "mac": "",
+        "open_ports": [
+          445,
+          3389
+        ],
+        "banners": {},
+        "via": [
+          "Ports"
+        ],
+        "snmp": {},
+        "is_local": true,
+        "name": "Demo-Client (this PC)",
+        "mac_vendor": "",
+        "ports": [
+          445,
+          3389
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Workstation",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 10,
+        "issues": [],
+        "evidence": [
+          "role=Workstation from open port(s) [3389, 445]"
+        ],
+        "review_status": "pending",
+        "human_edits": {},
+        "rdns": "Demo-Client.reddog.microsoft.com"
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:30Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.9",
+      "before": {
+        "ip": "172.19.0.9",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          80
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          22,
+          80
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.9",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          80
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-9",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          80
+        ],
+        "http": {
+          "title": "Streamlit",
+          "server": "nginx/1.24.0 (Ubuntu)",
+          "hints": [],
+          "url": "http://172.19.0.9:80/",
+          "error": ""
+        },
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:41Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.1",
+      "before": {
+        "ip": "172.19.0.1",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "is_gateway": true,
+        "lan": "172.19.0.0/24",
+        "name": "",
+        "mac_vendor": "",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.1",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "is_gateway": true,
+        "lan": "172.19.0.0/24",
+        "name": "router-1",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Router",
+        "tier": "Gateway",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)",
+          "role=Router (is_gateway override)",
+          "tier=Gateway (is_gateway override)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:40:52Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.27",
+      "before": {
+        "ip": "172.19.0.27",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.27",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-27",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:41:03Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.28",
+      "before": {
+        "ip": "172.19.0.28",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.28",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-28",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:41:14Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.29",
+      "before": {
+        "ip": "172.19.0.29",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.29",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-29",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:41:26Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.45",
+      "before": {
+        "ip": "172.19.0.45",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.45",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-45",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:41:38Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.37",
+      "before": {
+        "ip": "172.19.0.37",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          443,
+          1433
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          443,
+          1433
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.37",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          443,
+          1433
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "db-37",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          443,
+          1433
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Database Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Database Server from open port(s) [1433]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:41:51Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.46",
+      "before": {
+        "ip": "172.19.0.46",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.46",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-46",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:42:03Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.47",
+      "before": {
+        "ip": "172.19.0.47",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.47",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-47",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:42:17Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.44",
+      "before": {
+        "ip": "172.19.0.44",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.44",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-44",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:42:31Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.33",
+      "before": {
+        "ip": "172.19.0.33",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.33",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-33",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:42:47Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.38",
+      "before": {
+        "ip": "172.19.0.38",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.38",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-38",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:42:54Z",
+      "actor": "agent:enrichment",
+      "action": "update_device",
+      "target": "172.19.0.255",
+      "before": {
+        "ip": "172.19.0.255",
+        "mac": "ff:ff:ff:ff:ff:ff",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "",
+        "mac_vendor": "",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "",
+        "model": "",
+        "role": "",
+        "tier": "",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 0,
+        "issues": [],
+        "evidence": [],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.255",
+        "mac": "ff:ff:ff:ff:ff:ff",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-255",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.47",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.47",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.27",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.27",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.44",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.44",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.28",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.28",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.45",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.45",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.255",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.255",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.38",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.38",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.46",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.46",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.4",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.4",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.29",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.29",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.37",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.37",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.7",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.7",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.33",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.33",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.9",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.9",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:19Z",
+      "actor": "agent:links",
+      "action": "add_link",
+      "target": "172.19.0.1|172.19.0.6",
+      "before": null,
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.6",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:45:47Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.6",
+      "before": {
+        "ip": "172.19.0.6",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-6",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "http": {
+          "title": "Welcome to nginx!",
+          "server": "nginx/1.24.0 (Ubuntu)",
+          "hints": [],
+          "url": "http://172.19.0.6:80/",
+          "error": ""
+        },
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.6",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-6",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          53,
+          80,
+          443
+        ],
+        "http": {
+          "title": "Welcome to nginx!",
+          "server": "nginx/1.24.0 (Ubuntu)",
+          "hints": [],
+          "url": "http://172.19.0.6:80/",
+          "error": ""
+        },
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:46:13Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.7",
+      "before": {
+        "ip": "172.19.0.7",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          3306
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.19",
+          "3306": "[\u0000\u0000\u0000\n8.0.46-0ubuntu0.24.04.4\u0000\u000b\u0000\u0000\u0000\fuhyuQV<\u0000\ufffd\ufffd\ufffd\u0002\u0000\ufffd\ufffd\u0015\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001aGZU*S\u001f\u0004i\u001dY\u0001\u0000caching_sha2_password\u0000"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "db-7",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          3306
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Database Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Database Server from open port(s) [3306]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.7",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          3306
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.19",
+          "3306": "[\u0000\u0000\u0000\n8.0.46-0ubuntu0.24.04.4\u0000\u000b\u0000\u0000\u0000\fuhyuQV<\u0000\ufffd\ufffd\ufffd\u0002\u0000\ufffd\ufffd\u0015\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001aGZU*S\u001f\u0004i\u001dY\u0001\u0000caching_sha2_password\u0000"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "db-7",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          3306
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Database Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Database Server from open port(s) [3306]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:46:43Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.4",
+      "before": {
+        "ip": "172.19.0.4",
+        "mac": "",
+        "open_ports": [
+          445,
+          3389
+        ],
+        "banners": {},
+        "via": [
+          "Ports"
+        ],
+        "snmp": {},
+        "is_local": true,
+        "name": "Demo-Client (this PC)",
+        "mac_vendor": "",
+        "ports": [
+          445,
+          3389
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Workstation",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 10,
+        "issues": [],
+        "evidence": [
+          "role=Workstation from open port(s) [3389, 445]"
+        ],
+        "review_status": "pending",
+        "human_edits": {},
+        "rdns": "Demo-Client.reddog.microsoft.com"
+      },
+      "after": {
+        "ip": "172.19.0.4",
+        "mac": "",
+        "open_ports": [
+          445,
+          3389
+        ],
+        "banners": {},
+        "via": [
+          "Ports"
+        ],
+        "snmp": {},
+        "is_local": true,
+        "name": "Demo-Client (this PC)",
+        "mac_vendor": "",
+        "ports": [
+          445,
+          3389
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Workstation",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 10,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          }
+        ],
+        "evidence": [
+          "role=Workstation from open port(s) [3389, 445]"
+        ],
+        "review_status": "pending",
+        "human_edits": {},
+        "rdns": "Demo-Client.reddog.microsoft.com"
+      }
+    },
+    {
+      "time": "2026-11-18T03:47:11Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.9",
+      "before": {
+        "ip": "172.19.0.9",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          80
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-9",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          80
+        ],
+        "http": {
+          "title": "Streamlit",
+          "server": "nginx/1.24.0 (Ubuntu)",
+          "hints": [],
+          "url": "http://172.19.0.9:80/",
+          "error": ""
+        },
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.9",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          22,
+          80
+        ],
+        "banners": {
+          "22": "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20"
+        },
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-9",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          22,
+          80
+        ],
+        "http": {
+          "title": "Streamlit",
+          "server": "nginx/1.24.0 (Ubuntu)",
+          "hints": [],
+          "url": "http://172.19.0.9:80/",
+          "error": ""
+        },
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:47:53Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.1",
+      "before": {
+        "ip": "172.19.0.1",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "is_gateway": true,
+        "lan": "172.19.0.0/24",
+        "name": "router-1",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Router",
+        "tier": "Gateway",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)",
+          "role=Router (is_gateway override)",
+          "tier=Gateway (is_gateway override)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.1",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "is_gateway": true,
+        "lan": "172.19.0.0/24",
+        "name": "router-1",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Router",
+        "tier": "Gateway",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)",
+          "role=Router (is_gateway override)",
+          "tier=Gateway (is_gateway override)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:48:35Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.27",
+      "before": {
+        "ip": "172.19.0.27",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-27",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.27",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-27",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:49:18Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.28",
+      "before": {
+        "ip": "172.19.0.28",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-28",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.28",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-28",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:50:00Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.29",
+      "before": {
+        "ip": "172.19.0.29",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-29",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.29",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-29",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:50:42Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.45",
+      "before": {
+        "ip": "172.19.0.45",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-45",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.45",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-45",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:51:25Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.37",
+      "before": {
+        "ip": "172.19.0.37",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          443,
+          1433
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "db-37",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          443,
+          1433
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Database Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Database Server from open port(s) [1433]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.37",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          443,
+          1433
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "db-37",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          443,
+          1433
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Database Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Database Server from open port(s) [1433]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:52:08Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.46",
+      "before": {
+        "ip": "172.19.0.46",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-46",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.46",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-46",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:52:50Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.47",
+      "before": {
+        "ip": "172.19.0.47",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-47",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.47",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [
+          80,
+          443
+        ],
+        "banners": {},
+        "via": [
+          "Ports",
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "web-47",
+        "mac_vendor": "Private MAC",
+        "ports": [
+          80,
+          443
+        ],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Web Server",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 5,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Weak classification \u2013 decided by port fallback only"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Web Server from open port(s) [80, 443]"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:53:33Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.44",
+      "before": {
+        "ip": "172.19.0.44",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-44",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.44",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-44",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Name unknown (default name assigned)"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:54:15Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.33",
+      "before": {
+        "ip": "172.19.0.33",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-33",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.33",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-33",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Name unknown (default name assigned)"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:54:57Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.38",
+      "before": {
+        "ip": "172.19.0.38",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-38",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.38",
+        "mac": "12:34:56:78:9a:bc",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-38",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Name unknown (default name assigned)"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          },
+          {
+            "severity": "warning",
+            "msg": "Same MAC 12:34:56:78:9a:bc on multiple IPs: ['172.19.0.6', '172.19.0.7', '172.19.0.9', '172.19.0.1', '172.19.0.27', '172.19.0.28', '172.19.0.29', '172.19.0.45', '172.19.0.37', '172.19.0.46', '172.19.0.47', '172.19.0.44', '172.19.0.33', '172.19.0.38']"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_device",
+      "target": "172.19.0.255",
+      "before": {
+        "ip": "172.19.0.255",
+        "mac": "ff:ff:ff:ff:ff:ff",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-255",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "ip": "172.19.0.255",
+        "mac": "ff:ff:ff:ff:ff:ff",
+        "open_ports": [],
+        "banners": {},
+        "via": [
+          "ARP"
+        ],
+        "snmp": {},
+        "is_local": false,
+        "name": "host-255",
+        "mac_vendor": "Private MAC",
+        "ports": [],
+        "http": {},
+        "lldp": {},
+        "vendor": "-",
+        "model": "-",
+        "role": "Host",
+        "tier": "Endpoint",
+        "is_gateway": false,
+        "lan": "",
+        "confidence": 20,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "Name unknown (default name assigned)"
+          },
+          {
+            "severity": "info",
+            "msg": "Model unknown"
+          }
+        ],
+        "evidence": [
+          "role=Host (default fallback)"
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.47",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.47",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.47",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.27",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.27",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.27",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.44",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.44",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.44",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.28",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.28",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.28",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.45",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.45",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.45",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.255",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.255",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.255",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.38",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.38",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.38",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.46",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.46",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.46",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.4",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.4",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.4",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.29",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.29",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.29",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.37",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.37",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.37",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.7",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.7",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.7",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.33",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.33",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.33",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.9",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.9",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.9",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    },
+    {
+      "time": "2026-11-18T03:55:09Z",
+      "actor": "agent:verification",
+      "action": "update_link",
+      "target": "172.19.0.1|172.19.0.6",
+      "before": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.6",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      },
+      "after": {
+        "a": "172.19.0.1",
+        "b": "172.19.0.6",
+        "a_port": "",
+        "b_port": "",
+        "source": "inferred",
+        "seen_from": [],
+        "confidence": 40,
+        "issues": [
+          {
+            "severity": "info",
+            "msg": "assumed from gateway, not measured"
+          }
+        ],
+        "review_status": "pending",
+        "human_edits": {}
+      }
+    }
+  ]
+}

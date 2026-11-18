@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NetArch — Verified Network Architecture</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f9;color:#222}
+header{background:linear-gradient(135deg,#1a237e,#1976d2);color:white;padding:18px 24px}
+header h1{margin:0 0 4px 0;font-size:1.6em}header p{margin:0;opacity:.85;font-size:.9em}
+.kpi{display:flex;flex-wrap:wrap;gap:12px;padding:16px 24px}
+.kpi-card{background:white;border-radius:8px;padding:12px 18px;min-width:120px;
+  box-shadow:0 1px 4px rgba(0,0,0,.12);text-align:center}
+.kpi-card .val{font-size:2em;font-weight:bold;color:#1976d2}
+.kpi-card .lbl{font-size:.8em;color:#666;margin-top:4px}
+section{background:white;margin:12px 24px;border-radius:8px;padding:16px 20px;
+  box-shadow:0 1px 4px rgba(0,0,0,.08)}
+h2{font-size:1.1em;margin:0 0 10px 0;color:#1976d2}
+table{border-collapse:collapse;width:100%;font-size:.85em}
+th{background:#e3eaf8;padding:6px 8px;text-align:left}
+td{padding:5px 8px;border-bottom:1px solid #e8ecf2}
+tr:hover td{background:#f0f4ff}
+ul{margin:0;padding-left:1.4em;line-height:1.8}
+.svg-wrap{overflow-x:auto;padding:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>NetArch — Verified Network Architecture</h1>
+  <p>Target: 127.20.20.0/24 &nbsp;|&nbsp; Reviewer: AMP &nbsp;|&nbsp;
+     Mode: LAB &nbsp;|&nbsp;
+     Report v2 &nbsp;|&nbsp; Generated: 2026-11-18T02:51:17Z</p>
+</header>
+
+<div class="kpi">
+  <div class="kpi-card"><div class="val">13</div><div class="lbl">Devices</div></div>
+  <div class="kpi-card"><div class="val">12</div><div class="lbl">Measured Links</div></div>
+  <div class="kpi-card"><div class="val">0</div><div class="lbl">Inferred Links</div></div>
+  <div class="kpi-card"><div class="val">0</div><div class="lbl">Manual Links</div></div>
+  <div class="kpi-card"><div class="val">7</div><div class="lbl">Network Devices</div></div>
+  <div class="kpi-card"><div class="val">2</div><div class="lbl">Vendors</div></div>
+  <div class="kpi-card"><div class="val">59%</div><div class="lbl">Avg Confidence</div></div>
+  <div class="kpi-card"><div class="val">19</div><div class="lbl">Open Issues</div></div>
+</div>
+
+<section>
+  <h2>Network Diagram</h2>
+  <div class="svg-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="1490" height="635" style="font-family:sans-serif;background:#f8f9fa">
+<polyline points="745,125 745,150 745,150 745,175" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<text x="740" y="145" font-size="9" fill="#555">xe-0/0/0</text>
+<polyline points="745,125 745,207 995,207 995,290" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<text x="865" y="202" font-size="9" fill="#555">xe-0/0/1</text>
+<polyline points="745,125 745,322 1370,322 1370,520" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<polyline points="745,240 745,265 495,265 495,290" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<text x="615" y="260" font-size="9" fill="#555">Gi1/0/1</text>
+<polyline points="745,240 745,256 745,256 745,290" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<text x="740" y="251" font-size="9" fill="#555">Gi1/0/2</text>
+<polyline points="745,240 745,380 1120,380 1120,520" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<polyline points="495,355 495,437 120,437 120,520" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<polyline points="495,355 495,427 370,427 370,520" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<polyline points="745,355 745,380 620,380 620,405" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<polyline points="745,355 745,371 870,371 870,405" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<polyline points="745,355 745,447 620,447 620,520" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<polyline points="995,355 995,417 870,417 870,520" fill="none" stroke="#1a73e8" stroke-width="2" stroke-dasharray="none"/>
+<g>
+  <title>IP: 127.20.20.10 | Vendor: Juniper | Model: EX4400-24X | Title: EX4400-24X | Via: SNMP, Ports | Ports: [20022, 20443] | Confidence: 80 | Issues: []</title>
+  <rect x="655" y="60" width="180" height="65" rx="6" ry="6" fill="#0d47a1" fill-opacity="0.9" stroke="#0d47a1" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="803" y="62" width="30" height="14" rx="7" fill="#4caf50"/>
+  <text x="818" y="72" text-anchor="middle" font-size="8" fill="white">80%</text>
+  <text x="665" y="80" font-size="13">🔀</text>
+  <text x="683" y="80" font-size="11" fill="white" font-weight="bold">l3switch-10</text>
+  <text x="663" y="96" font-size="9" fill="#ffffffcc">Juniper EX4400-24X</text>
+  <text x="663" y="112" font-size="9" fill="#ffffffaa">127.20.20.10 · Core</text>
+</g>
+<g>
+  <title>IP: 127.20.20.14 | Vendor: Juniper | Model: EX4000-8P | Via: SNMP, Ports | Ports: [20022, 20023] | Confidence: 80 | Issues: [&#x27;Telnet (port 23) is open&#x27;]</title>
+  <rect x="905" y="290" width="180" height="65" rx="6" ry="6" fill="#1565c0" fill-opacity="0.9" stroke="#e53935" stroke-width="3" stroke-dasharray="none"/>
+  <rect x="1053" y="292" width="30" height="14" rx="7" fill="#4caf50"/>
+  <text x="1068" y="302" text-anchor="middle" font-size="8" fill="white">80%</text>
+  <text x="915" y="310" font-size="13">🔁</text>
+  <text x="933" y="310" font-size="11" fill="white" font-weight="bold">switch-14</text>
+  <text x="913" y="326" font-size="9" fill="#ffffffcc">Juniper EX4000-8P</text>
+  <text x="913" y="342" font-size="9" fill="#ffffffaa">127.20.20.14 · Edge</text>
+</g>
+<g>
+  <title>IP: 127.20.20.32 | Vendor: - | Model: - | Via: Ports | Ports: [20445] | Confidence: 40 | Issues: [&#x27;Name unknown (default name assigned)&#x27;, &#x27;Model unknown&#x27;, &#x27;Neighbour-only device – management IP not responding&#x27;]</title>
+  <rect x="280" y="520" width="180" height="65" rx="6" ry="6" fill="#546e7a" fill-opacity="0.9" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="428" y="522" width="30" height="14" rx="7" fill="#f44336"/>
+  <text x="443" y="532" text-anchor="middle" font-size="8" fill="white">40%</text>
+  <text x="290" y="540" font-size="13">🖥️</text>
+  <text x="308" y="540" font-size="11" fill="white" font-weight="bold">host-32</text>
+  <text x="288" y="572" font-size="9" fill="#ffffffaa">127.20.20.32 · Endpoint</text>
+</g>
+<g>
+  <title>IP: 127.20.20.33 | Vendor: - | Model: - | Via: Ports | Ports: [20445] | Confidence: 40 | Issues: [&#x27;Name unknown (default name assigned)&#x27;, &#x27;Model unknown&#x27;, &#x27;Neighbour-only device – management IP not responding&#x27;]</title>
+  <rect x="530" y="520" width="180" height="65" rx="6" ry="6" fill="#546e7a" fill-opacity="0.9" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="678" y="522" width="30" height="14" rx="7" fill="#f44336"/>
+  <text x="693" y="532" text-anchor="middle" font-size="8" fill="white">40%</text>
+  <text x="540" y="540" font-size="13">🖥️</text>
+  <text x="558" y="540" font-size="11" fill="white" font-weight="bold">host-33</text>
+  <text x="538" y="572" font-size="9" fill="#ffffffaa">127.20.20.33 · Endpoint</text>
+</g>
+<g>
+  <title>IP: 127.20.20.42 | Vendor: - | Model: - | Via: Ports | Ports: [20022, 23306] | Confidence: 40 | Issues: [&#x27;Name unknown (default name assigned)&#x27;, &#x27;Model unknown&#x27;, &#x27;Neighbour-only device – management IP not responding&#x27;]</title>
+  <rect x="1280" y="520" width="180" height="65" rx="6" ry="6" fill="#546e7a" fill-opacity="0.9" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="1428" y="522" width="30" height="14" rx="7" fill="#f44336"/>
+  <text x="1443" y="532" text-anchor="middle" font-size="8" fill="white">40%</text>
+  <text x="1290" y="540" font-size="13">🖥️</text>
+  <text x="1308" y="540" font-size="11" fill="white" font-weight="bold">host-42</text>
+  <text x="1288" y="572" font-size="9" fill="#ffffffaa">127.20.20.42 · Endpoint</text>
+</g>
+<g>
+  <title>IP: 127.20.20.34 | Vendor: - | Model: - | Via: Ports | Ports: [23389] | Confidence: 40 | Issues: [&#x27;Name unknown (default name assigned)&#x27;, &#x27;Model unknown&#x27;, &#x27;Neighbour-only device – management IP not responding&#x27;]</title>
+  <rect x="780" y="520" width="180" height="65" rx="6" ry="6" fill="#546e7a" fill-opacity="0.9" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="928" y="522" width="30" height="14" rx="7" fill="#f44336"/>
+  <text x="943" y="532" text-anchor="middle" font-size="8" fill="white">40%</text>
+  <text x="790" y="540" font-size="13">🖥️</text>
+  <text x="808" y="540" font-size="11" fill="white" font-weight="bold">host-34</text>
+  <text x="788" y="572" font-size="9" fill="#ffffffaa">127.20.20.34 · Endpoint</text>
+</g>
+<g>
+  <title>IP: 127.20.20.13 | Vendor: Juniper | Model: EX4100-48MP | Title: EX4100-48MP | Via: SNMP, Ports | Ports: [20022, 20443] | Confidence: 80 | Issues: []</title>
+  <rect x="655" y="290" width="180" height="65" rx="6" ry="6" fill="#1565c0" fill-opacity="0.9" stroke="#1565c0" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="803" y="292" width="30" height="14" rx="7" fill="#4caf50"/>
+  <text x="818" y="302" text-anchor="middle" font-size="8" fill="white">80%</text>
+  <text x="665" y="310" font-size="13">🔁</text>
+  <text x="683" y="310" font-size="11" fill="white" font-weight="bold">switch-13</text>
+  <text x="663" y="326" font-size="9" fill="#ffffffcc">Juniper EX4100-48MP</text>
+  <text x="663" y="342" font-size="9" fill="#ffffffaa">127.20.20.13 · Access</text>
+</g>
+<g>
+  <title>IP: 127.20.20.11 | Vendor: Cisco | Model: C9300-48P | Title: C9300-48P | Via: SNMP, Ports | Ports: [20022, 20443] | Confidence: 80 | Issues: []</title>
+  <rect x="655" y="175" width="180" height="65" rx="6" ry="6" fill="#0d47a1" fill-opacity="0.9" stroke="#0d47a1" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="803" y="177" width="30" height="14" rx="7" fill="#4caf50"/>
+  <text x="818" y="187" text-anchor="middle" font-size="8" fill="white">80%</text>
+  <text x="665" y="195" font-size="13">🔀</text>
+  <text x="683" y="195" font-size="11" fill="white" font-weight="bold">l3switch-11</text>
+  <text x="663" y="211" font-size="9" fill="#ffffffcc">Cisco C9300-48P</text>
+  <text x="663" y="227" font-size="9" fill="#ffffffaa">127.20.20.11 · Distribution</text>
+</g>
+<g>
+  <title>IP: 127.20.20.12 | Vendor: Cisco | Model: C9200-24P | Title: C9200-24P | Via: SNMP, Ports | Ports: [20022, 20443] | Confidence: 80 | Issues: []</title>
+  <rect x="405" y="290" width="180" height="65" rx="6" ry="6" fill="#1565c0" fill-opacity="0.9" stroke="#1565c0" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="553" y="292" width="30" height="14" rx="7" fill="#4caf50"/>
+  <text x="568" y="302" text-anchor="middle" font-size="8" fill="white">80%</text>
+  <text x="415" y="310" font-size="13">🔁</text>
+  <text x="433" y="310" font-size="11" fill="white" font-weight="bold">switch-12</text>
+  <text x="413" y="326" font-size="9" fill="#ffffffcc">Cisco C9200-24P</text>
+  <text x="413" y="342" font-size="9" fill="#ffffffaa">127.20.20.12 · Access</text>
+</g>
+<g>
+  <title>IP: 127.20.20.31 | Vendor: - | Model: - | Via: Ports | Ports: [20445, 23389] | Confidence: 40 | Issues: [&#x27;Name unknown (default name assigned)&#x27;, &#x27;Model unknown&#x27;, &#x27;Neighbour-only device – management IP not responding&#x27;]</title>
+  <rect x="30" y="520" width="180" height="65" rx="6" ry="6" fill="#546e7a" fill-opacity="0.9" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="178" y="522" width="30" height="14" rx="7" fill="#f44336"/>
+  <text x="193" y="532" text-anchor="middle" font-size="8" fill="white">40%</text>
+  <text x="40" y="540" font-size="13">🖥️</text>
+  <text x="58" y="540" font-size="11" fill="white" font-weight="bold">host-31</text>
+  <text x="38" y="572" font-size="9" fill="#ffffffaa">127.20.20.31 · Endpoint</text>
+</g>
+<g>
+  <title>IP: 127.20.20.41 | Vendor: - | Model: - | Title: Ubuntu 24.04 LTS nginx | Via: Ports | Ports: [20022, 20080, 20443] | Confidence: 40 | Issues: [&#x27;Name unknown (default name assigned)&#x27;, &#x27;Model unknown&#x27;, &#x27;Neighbour-only device – management IP not responding&#x27;]</title>
+  <rect x="1030" y="520" width="180" height="65" rx="6" ry="6" fill="#546e7a" fill-opacity="0.9" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="1178" y="522" width="30" height="14" rx="7" fill="#f44336"/>
+  <text x="1193" y="532" text-anchor="middle" font-size="8" fill="white">40%</text>
+  <text x="1040" y="540" font-size="13">🖥️</text>
+  <text x="1058" y="540" font-size="11" fill="white" font-weight="bold">host-41</text>
+  <text x="1038" y="572" font-size="9" fill="#ffffffaa">127.20.20.41 · Endpoint</text>
+</g>
+<g>
+  <title>IP: 127.20.20.21 | Vendor: Juniper | Model: Juniper | Via: LLDP | Ports: [] | Confidence: 65 | Issues: []</title>
+  <rect x="530" y="405" width="180" height="65" rx="6" ry="6" fill="#6a1b9a" fill-opacity="0.9" stroke="#6a1b9a" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="678" y="407" width="30" height="14" rx="7" fill="#ff9800"/>
+  <text x="693" y="417" text-anchor="middle" font-size="8" fill="white">65%</text>
+  <text x="540" y="425" font-size="13">📶</text>
+  <text x="558" y="425" font-size="11" fill="white" font-weight="bold">ap45-01</text>
+  <text x="538" y="441" font-size="9" fill="#ffffffcc">Juniper</text>
+  <text x="538" y="457" font-size="9" fill="#ffffffaa">127.20.20.21 · Wireless</text>
+</g>
+<g>
+  <title>IP: 127.20.20.22 | Vendor: Juniper | Model: Juniper | Via: LLDP | Ports: [] | Confidence: 65 | Issues: []</title>
+  <rect x="780" y="405" width="180" height="65" rx="6" ry="6" fill="#6a1b9a" fill-opacity="0.9" stroke="#6a1b9a" stroke-width="1.5" stroke-dasharray="none"/>
+  <rect x="928" y="407" width="30" height="14" rx="7" fill="#ff9800"/>
+  <text x="943" y="417" text-anchor="middle" font-size="8" fill="white">65%</text>
+  <text x="790" y="425" font-size="13">📶</text>
+  <text x="808" y="425" font-size="11" fill="white" font-weight="bold">ap45-02</text>
+  <text x="788" y="441" font-size="9" fill="#ffffffcc">Juniper</text>
+  <text x="788" y="457" font-size="9" fill="#ffffffaa">127.20.20.22 · Wireless</text>
+</g>
+</svg></div>
+</section>
+
+<section>
+  <h2>Insights</h2>
+  <ul><li>Total devices: 13. Roles: Host: 6, L3 Switch: 2, Switch: 3, Wireless AP: 2</li><li>Multi-vendor environment: Juniper (5), Cisco (2)</li><li>Neighbour-only devices (found via LLDP/CDP only): host-32, host-33, host-42, host-34, host-31, host-41</li><li>⚠️ Security findings: switch-14: Telnet (port 23) is open</li></ul>
+</section>
+
+<section>
+  <h2>Agent Pipeline</h2>
+  <table><tr><th>Agent</th><th>Status</th><th>Duration (s)</th><th>Summary</th></tr>
+  <tr><td><b>Discovery</b></td><td>done</td><td>31.0</td><td>Probed 254 hosts in 30.3s; found 11 live. Methods: {&#x27;SNMP&#x27;: 5, &#x27;Ports&#x27;: 11}. Gateway: none.</td></tr>
+<tr><td><b>Enrichment</b></td><td>done</td><td>1.0</td><td>Enriched 11 devices in 1.2s; SNMP 0, HTTP 5, vendors: [&#x27;Cisco&#x27;, &#x27;Juniper&#x27;], overrides: 0.</td></tr>
+<tr><td><b>Links</b></td><td>done</td><td>6.0</td><td>Processed 11 devices in 5.6s; LLDP links: 16, CDP: 0, inferred: 0, crawl added: 0.</td></tr>
+<tr><td><b>Verification</b></td><td>done</td><td>173.0</td><td>Verified 13 devices in 172.9s. Avg confidence: 59. Issues: {&#x27;critical&#x27;: 1, &#x27;warning&#x27;: 0, &#x27;info&#x27;: 18}. Needs review: 9, auto-approve: 4.</td></tr>
+<tr><td><b>Review</b></td><td>done</td><td>0.0</td><td>Awaiting review: 13 devices pending (4 auto-approve candidates), 12 links pending.</td></tr>
+</table>
+</section>
+
+<section>
+  <h2>Device Inventory</h2>
+  <table>
+  <tr><th>Name</th><th>IP</th><th>MAC</th><th>Vendor</th><th>Model</th>
+      <th>Role</th><th>Tier</th><th>Conf</th><th>Status</th><th>Issues</th></tr>
+  <tr><td>l3switch-10</td><td>127.20.20.10</td><td></td><td>Juniper</td><td>EX4400-24X</td><td>L3 Switch</td><td>Core</td><td>80</td><td>approved</td><td></td></tr>
+<tr><td>l3switch-11</td><td>127.20.20.11</td><td></td><td>Cisco</td><td>C9300-48P</td><td>L3 Switch</td><td>Distribution</td><td>80</td><td>approved</td><td></td></tr>
+<tr><td>switch-12</td><td>127.20.20.12</td><td></td><td>Cisco</td><td>C9200-24P</td><td>Switch</td><td>Access</td><td>80</td><td>approved</td><td></td></tr>
+<tr><td>switch-13</td><td>127.20.20.13</td><td></td><td>Juniper</td><td>EX4100-48MP</td><td>Switch</td><td>Access</td><td>80</td><td>approved</td><td></td></tr>
+<tr><td>switch-14</td><td>127.20.20.14</td><td></td><td>Juniper</td><td>EX4000-8P</td><td>Switch</td><td>Edge</td><td>80</td><td>approved</td><td>Telnet (port 23) is open</td></tr>
+<tr><td>ap45-01</td><td>127.20.20.21</td><td></td><td>Juniper</td><td>Juniper</td><td>Wireless AP</td><td>Wireless</td><td>65</td><td>approved</td><td></td></tr>
+<tr><td>ap45-02</td><td>127.20.20.22</td><td></td><td>Juniper</td><td>Juniper</td><td>Wireless AP</td><td>Wireless</td><td>65</td><td>approved</td><td></td></tr>
+<tr><td>host-31</td><td>127.20.20.31</td><td></td><td>-</td><td>-</td><td>Host</td><td>Endpoint</td><td>40</td><td>approved</td><td>Name unknown (default name assigned); Model unknown; Neighbour-only device – management IP not responding</td></tr>
+<tr><td>host-32</td><td>127.20.20.32</td><td></td><td>-</td><td>-</td><td>Host</td><td>Endpoint</td><td>40</td><td>approved</td><td>Name unknown (default name assigned); Model unknown; Neighbour-only device – management IP not responding</td></tr>
+<tr><td>host-33</td><td>127.20.20.33</td><td></td><td>-</td><td>-</td><td>Host</td><td>Endpoint</td><td>40</td><td>approved</td><td>Name unknown (default name assigned); Model unknown; Neighbour-only device – management IP not responding</td></tr>
+<tr><td>host-34</td><td>127.20.20.34</td><td></td><td>-</td><td>-</td><td>Host</td><td>Endpoint</td><td>40</td><td>approved</td><td>Name unknown (default name assigned); Model unknown; Neighbour-only device – management IP not responding</td></tr>
+<tr><td>host-41</td><td>127.20.20.41</td><td></td><td>-</td><td>-</td><td>Host</td><td>Endpoint</td><td>40</td><td>approved</td><td>Name unknown (default name assigned); Model unknown; Neighbour-only device – management IP not responding</td></tr>
+<tr><td>host-42</td><td>127.20.20.42</td><td></td><td>-</td><td>-</td><td>Host</td><td>Endpoint</td><td>40</td><td>approved</td><td>Name unknown (default name assigned); Model unknown; Neighbour-only device – management IP not responding</td></tr>
+</table>
+</section>
+
+<section>
+  <h2>Links</h2>
+  <table>
+  <tr><th>A (port)</th><th>B (port)</th><th>Source</th><th>Both ends</th><th>Conf</th><th>Issues</th></tr>
+  <tr><td>l3switch-10 xe-0/0/0</td><td>l3switch-11 Te1/1/1</td><td>LLDP</td><td>✓</td><td>100</td><td></td></tr>
+<tr><td>l3switch-10 xe-0/0/1</td><td>switch-14 ge-0/0/0</td><td>LLDP</td><td>✓</td><td>100</td><td></td></tr>
+<tr><td>l3switch-10 </td><td>host-42 eth0</td><td>LLDP</td><td>½</td><td>70</td><td>Link reported by one end only</td></tr>
+<tr><td>l3switch-11 Gi1/0/1</td><td>switch-12 Gi1/1/1</td><td>LLDP</td><td>✓</td><td>100</td><td></td></tr>
+<tr><td>l3switch-11 Gi1/0/2</td><td>switch-13 ge-0/2/0</td><td>LLDP</td><td>✓</td><td>100</td><td></td></tr>
+<tr><td>l3switch-11 </td><td>host-41 eth0</td><td>LLDP</td><td>½</td><td>70</td><td>Link reported by one end only</td></tr>
+<tr><td>switch-12 </td><td>host-31 eth0</td><td>LLDP</td><td>½</td><td>70</td><td>Link reported by one end only</td></tr>
+<tr><td>switch-12 </td><td>host-32 eth0</td><td>LLDP</td><td>½</td><td>70</td><td>Link reported by one end only</td></tr>
+<tr><td>switch-13 </td><td>ap45-01 eth0</td><td>LLDP</td><td>½</td><td>70</td><td>Link reported by one end only</td></tr>
+<tr><td>switch-13 </td><td>ap45-02 eth0</td><td>LLDP</td><td>½</td><td>70</td><td>Link reported by one end only</td></tr>
+<tr><td>switch-13 </td><td>host-33 eth0</td><td>LLDP</td><td>½</td><td>70</td><td>Link reported by one end only</td></tr>
+<tr><td>switch-14 </td><td>host-34 eth0</td><td>LLDP</td><td>½</td><td>70</td><td>Link reported by one end only</td></tr>
+</table>
+</section>
+
+<section>
+  <h2>Audit Trail (last 200 entries)</h2>
+  <table>
+  <tr><th>Time</th><th>Actor</th><th>Action</th><th>Target</th></tr>
+  <tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.10</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.14</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.32</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.33</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.42</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.34</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.13</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.12</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.31</td></tr>
+<tr><td>2026-11-17T17:45:36Z</td><td>agent:discovery</td><td>add_device</td><td>127.20.20.41</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.10</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.14</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.32</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.33</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.42</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.34</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.13</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.12</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.31</td></tr>
+<tr><td>2026-11-17T17:45:37Z</td><td>agent:enrichment</td><td>update_device</td><td>127.20.20.41</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.10|127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.14</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.10|127.20.20.14</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.42</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.10|127.20.20.42</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.10</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.34</td></tr>
+<tr><td>2026-11-17T17:45:38Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.14|127.20.20.34</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.11|127.20.20.13</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>add_device</td><td>127.20.20.21</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.13|127.20.20.21</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>add_device</td><td>127.20.20.22</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.13|127.20.20.22</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.33</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.13|127.20.20.33</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.10</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.12</td></tr>
+<tr><td>2026-11-17T17:45:41Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.11|127.20.20.12</td></tr>
+<tr><td>2026-11-17T17:45:42Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.13</td></tr>
+<tr><td>2026-11-17T17:45:42Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.41</td></tr>
+<tr><td>2026-11-17T17:45:42Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.11|127.20.20.41</td></tr>
+<tr><td>2026-11-17T17:45:43Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:45:43Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.31</td></tr>
+<tr><td>2026-11-17T17:45:43Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.12|127.20.20.31</td></tr>
+<tr><td>2026-11-17T17:45:43Z</td><td>agent:links</td><td>update_device</td><td>127.20.20.32</td></tr>
+<tr><td>2026-11-17T17:45:43Z</td><td>agent:links</td><td>add_link</td><td>127.20.20.12|127.20.20.32</td></tr>
+<tr><td>2026-11-17T17:45:48Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.10</td></tr>
+<tr><td>2026-11-17T17:45:48Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.10</td></tr>
+<tr><td>2026-11-17T17:45:48Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.14</td></tr>
+<tr><td>2026-11-17T17:46:18Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.32</td></tr>
+<tr><td>2026-11-17T17:46:48Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.33</td></tr>
+<tr><td>2026-11-17T17:47:16Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.42</td></tr>
+<tr><td>2026-11-17T17:47:46Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.34</td></tr>
+<tr><td>2026-11-17T17:47:46Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.13</td></tr>
+<tr><td>2026-11-17T17:47:46Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.13</td></tr>
+<tr><td>2026-11-17T17:47:46Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:47:46Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:47:46Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.12</td></tr>
+<tr><td>2026-11-17T17:47:46Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.12</td></tr>
+<tr><td>2026-11-17T17:48:14Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.31</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.41</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.21</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_device</td><td>127.20.20.22</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.10|127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.10|127.20.20.14</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.10|127.20.20.42</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.14|127.20.20.34</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.11|127.20.20.13</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.13|127.20.20.21</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.13|127.20.20.22</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.13|127.20.20.33</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.11|127.20.20.12</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.11|127.20.20.41</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.12|127.20.20.31</td></tr>
+<tr><td>2026-11-17T17:48:40Z</td><td>agent:verification</td><td>update_link</td><td>127.20.20.12|127.20.20.32</td></tr>
+<tr><td>2026-11-17T17:51:49Z</td><td>human:reviewer</td><td>update_link</td><td>127.20.20.10|127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:51:51Z</td><td>human:reviewer</td><td>update_link</td><td>127.20.20.10|127.20.20.14</td></tr>
+<tr><td>2026-11-17T17:51:53Z</td><td>human:reviewer</td><td>update_link</td><td>127.20.20.10|127.20.20.42</td></tr>
+<tr><td>2026-11-17T17:52:27Z</td><td>human:reviewer</td><td>update_device</td><td>127.20.20.10</td></tr>
+<tr><td>2026-11-17T17:52:29Z</td><td>human:reviewer</td><td>update_device</td><td>127.20.20.11</td></tr>
+<tr><td>2026-11-17T17:52:30Z</td><td>human:reviewer</td><td>update_device</td><td>127.20.20.12</td></tr>
+<tr><td>2026-11-17T17:52:31Z</td><td>human:reviewer</td><td>update_device</td><td>127.20.20.13</td></tr>
+<tr><td>2026-11-17T17:52:32Z</td><td>human:reviewer</td><td>update_device</td><td>127.20.20.14</td></tr>
+<tr><td>2026-11-17T17:53:31Z</td><td>human:AMP</td><td>finalize</td><td>127ce8c2</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_device</td><td>127.20.20.32</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_device</td><td>127.20.20.33</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_device</td><td>127.20.20.42</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_device</td><td>127.20.20.34</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_device</td><td>127.20.20.31</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_device</td><td>127.20.20.41</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_device</td><td>127.20.20.21</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_device</td><td>127.20.20.22</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.14|127.20.20.34</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.11|127.20.20.13</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.13|127.20.20.21</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.13|127.20.20.22</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.13|127.20.20.33</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.11|127.20.20.12</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.11|127.20.20.41</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.12|127.20.20.31</td></tr>
+<tr><td>2026-11-18T02:50:52Z</td><td>human:AMP</td><td>update_link</td><td>127.20.20.12|127.20.20.32</td></tr>
+<tr><td>2026-11-18T02:51:17Z</td><td>human:AMP</td><td>finalize</td><td>127ce8c2</td></tr>
+</table>
+</section>
+</body>
+</html>

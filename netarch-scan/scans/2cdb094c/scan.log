@@ -1,0 +1,3 @@
+[Discovery] Parsed 254 target(s) from: '127.20.20.0/24'
+[Discovery] Probed 254 hosts in 102.4s; found 0 live. Methods: {}. Gateway: none.
+[discovery] No live devices found. Stopping.
