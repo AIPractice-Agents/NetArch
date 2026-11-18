@@ -7,4 +7,4 @@ Single page, plain HTML/CSS/JS, no frameworks, no CDN, header "NetArch Scan - 5-
 - Results: KPIs, insights, the report in an iframe, a version selector, and downloads.
 - A history list on the left.
 
-Save jobs under scans/<id>/ and reload them on start. Add REST endpoints for scan, review, device and link edits, bulk, rerun, finalize, discard, reopen, and lab-info. Return 409 for review actions outside awaiting_review and for scans while one is already running. Write a README, then test the full API flow against the lab, the 409 and 400 cases, a restart reload, and run node --check on the JavaScript.
+Save jobs under scans/<id>/ and reload them on start. Add REST endpoints for scan, review, device and link edits, bulk, rerun, finalize, discard, reopen, and lab-info. Return 409 for review actions outside awaiting_review and for scans while one is already running. Test the full API flow against the lab, the 409 and 400 cases, a restart reload, and run node --check on the JavaScript.
